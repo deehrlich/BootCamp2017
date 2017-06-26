@@ -1,0 +1,187 @@
+	 \documentclass[12pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{fancyhdr}
+\usepackage{setspace}
+\pagestyle{fancy}
+\usepackage{amsmath, amsthm, amssymb, amsfonts, mathtools, xfrac,mathrsfs}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{graphicx,dsfont}
+\usepackage{braket, bm}
+
+\everymath{\displaystyle}
+\headheight=20pt
+ 
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\E}{\mathrm{E}}
+\newcommand{\Var} {\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+
+\DeclareMathOperator{\Tr}{Tr}
+
+\def\mean#1{\left< #1 \right>}
+ 
+\newcommand*\rfrac[2]{{}^{#1}\!/_{#2}}
+ 
+\newenvironment{theorem}[2][Theorem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2}]}{\end{trivlist}}
+
+\newenvironment{problem}[2][Problem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2}]}{\end{trivlist}}
+
+\title{Homework}
+\lhead{Math OSM Lab}
+\chead{Homework 1 - 6/26/17}
+\rhead{Dan Ehrlich}
+ 
+\begin{document}
+
+\begin{problem}{1.} \hfill
+\begin{itemize}
+\item[(3.6)] Let $\{ B_i\}_{i \in I}$ be a collection of elements in $\mathscr{F}$ such that $\{ B_i\}_{i \in I}$ is a partition of $\Omega$. Then for any $A \in \mathscr{F}$, since $B_i \cap B_j = \emptyset$ for all $i \neq j$, we have that $(A \cap B_i) \cap (A \cap B_j) = A \cap B_i \cap B_j = A \cap \emptyset=  \emptyset $ for all $i \neq j$. Furthermore, $\cup_{i \in I} (A \cap B_i) = A$ because $\Omega = \cup_{i \in I}  B_i$ and $A \cap \Omega = A$. Therefore, $\{(A \cap B_i)\}_{i \in I}$ forms a partition of A. It follows that $P(A) =P(\cup_{i \in I} (A \cap B_i)) =  \sum_{i \in I} P(A \cap B_i)$. 
+ 
+\item[(3.8)] Let $\{E_1, E_2, ..., E_n\}$ be a collection of independent events. This implies that the compliments $\{E_1^c, E_2^c, ..., E_n^c\}$ are independent as well. Since the compliments are independent and by De Morgan's laws  $\cup_{k=1}^{n} E_k =  (\cap_{k=1}^{n} E_k^c)^c $ we have that 
+$$P(\cup_{k=1}^{n} E_k) = P((\cap_{k=1}^{n} E_k^c)^c) = 1 - P(\cap_{k=1}^{n} E_k^c) = 1 - \Pi_{k=1}^{n} P(E_k^c) = 1 - \Pi_{k=1}^{n} (1 - P(E_k)) $$
+
+\item[(3.11)] $$P(s = \text{crime } | s \text{ tested } +) = \frac{P(s \text{ tested } + | s = \text{crime }) * P(s = \text{crime })}{P(s \text{ tested } +)} =$$
+$$ =  \frac{P(s \text{ tested } + | s = \text{crime }) * P(s = \text{crime })}{P(s \text{ tested } +|s = \text{crime })P(s = \text{crime })  +P(s \text{ tested } + | s \neq \text{crime }) * P(s \neq \text{crime }) } $$
+We have that 
+$$P(s \text{ tested } +| s \neq \text{crime }) = \frac{1}{3000000}$$
+$$P(s = \text{crime }) = \frac{1}{250000000}$$
+$$P(s \neq \text{crime }) = 1- \frac{1}{250000000}$$
+$$P(s \text{ tested } + | s = \text{crime }) = 1$$
+Therefore
+$$P(s = \text{crime } | s \text{ tested } +) = .0118$$
+
+\item[(3.12)] WLOG assume contestant chooses door 1. Denote the event that  the car is behind door $i$ for  $i \in 1,2,3$ as $C_1, C_2, C_3$ where $$ P(C_i) = \frac{1}{3}, i \in 1,2,3$$  Denote the door Monty opens as $D_1, D_2, D_3$. Then the probability monty opens a door given that the contestant chooses door 1 and the car is behind door $i$ is:
+$$P(D_3 |C_1) = 1/2$$
+$$P(D_3 |C_2) = 1$$
+$$P(D_3 |C_3) = 0$$
+By Bayes' law we have that:
+$$P(C_2|D_3) = \frac{P(D_3|C_2)P(C_2)}{P(D_3|C_1)P(C_1)+ P(D_3|C_2)P(C_2)+ P(D_3|C_3)P(C_3)} = \frac{2}{3}$$
+$$P(C_1|D_3) = \frac{P(D_3|C_1)P(C_1)}{P(D_3|C_1)P(C_1)+ P(D_3|C_2)P(C_2)+ P(D_3|C_3)P(C_3)} = \frac{1}{3}$$
+Therefore the probability of switching is higher. Similarly, if there are 10 doors and Monty opens 8, the probability of winning if the contestant switches is $\frac{9}{10}$ and the probability of winning if the contestant doesn't switch is $\frac{1}{10}$.
+\item[(3.16)] Let $X$ be a random variable with $\E[X] = \mu$ and $X^2$ be the random variable given by $X^2(\omega) = (X(\omega))^2$. Then 
+\begin{equation*}
+\begin{aligned}
+& \Var[X] = \E[(X-\E[X])^2] = \E[X^2 - 2X\E[X] + \E[X]^2] = \E[X^2] - \E[2X\E[X]] + \E[\E[X]^2]  =\\
+& = \E[X^2] - 2\E[X]\E[X] + \E[X]^2 = \E[X^2]-\E[X]^2 = \E[X^2]-\mu^2
+\end{aligned}
+\end{equation*}
+
+\item[(3.33)] Let $B = B(n,p)$ be a binomial random variable for $n$ trials with parameter $p$. Then since $\mu = pn$ and $\sigma^2 = n(p)(1-p)$, for any $\epsilon > 0$ we have by Chebyshev's inequality that 
+$$P(|\frac{B}{n}-p| \geq \epsilon) = P(|B-pn| \geq n\epsilon) = P(|B-\mu| \geq n\epsilon) \leq \frac{p(1-p)n}{n^2\epsilon^2} =  \frac{p(1-p)}{n\epsilon^2}$$
+
+\item[(3.36)] The probability of each student enrolling is Bernoulli$(.801)$ and the students are i.i.d., we have that if $6242$ students are offered admission the expected number of students is $5000$. Denote $S_{6242}$ as the number of students enrolled given $6242$ admissions, so by the Central Limit Theorem:
+$$ P(S_{6242} > 5500) = P(\frac{S_{6242} - 5000}{\sqrt{6242(.801)(.199)}} > \frac{5500 - 5000}{\sqrt{6242(.801)(.199)}} ) =$$ $$= P(\frac{S_{6242} - 5000}{\sqrt{6242(.801)(.199)}} > 15.85) \approx 1- \Phi(15.85) =  0$$
+
+\end{itemize}
+\end{problem}
+
+\begin{problem}{2.} \hfill
+\begin{itemize}
+\item[(a)] Events $A,B,C$ must be pairwise independent, but not mutually independent. Consider four equally likely points $\Omega  = \{1,2,3,4\}$ and let $A = \{1,2\}$, $B = \{2,3\}$, $C = \{3,1\}$. Then $P(A) = P(B) = P(C) = 1/4$ and $P(A\cap C) = P(\{1\}) = 1/4 = P(A)P(C)$.  The other pairwise probabilities similarly follow because the sets have similar structures. However, $P(A\cap B \cap C) = P(\{\emptyset\}) = 0 \neq 1/8 = P(A)P(B) P(C)$. 
+
+\item[(b)] Now let events $A,B,C$ must be mutually independent, but not pairwise independent in $B$ and $C$. Consider eight equally likely points $\Omega  = \{1,2,...,8\}$ and let $A = \{1,2,3,4\}$, $B = \{3,4,5,6\}$, $C = \{1,3,6,7\}$. Then Then $P(A) = P(B) = P(C) = 1/2$ and $P(A\cap B \cap C) = P(\{3\}) = 1/8 = P(A)P(B) P(C)$. Additionally, $P(A\cap C) = P(\{1,3\}) = 1/4 = P(A)P(C)$ and $P(A\cap B) = P(\{3,4\}) = 1/4 = P(A)P(B)$ but $P(B\cap C) = P(\{\emptyset\}) = 0 \neq 1/4 = P(B)P(C)$. 
+\end{itemize}
+\end{problem}
+
+\begin{problem}{3.} 
+In Benford's law, $P(d) =  \log_{10}(1 + 1/d)$ for $d = 1,2,...,9$. Then $$\sum_{d=1}^9 P(d) = \sum_{d=1}^9 \log_{10}(1 + 1/d) = \log_{10}(\Pi_{d=1}^9 (1 + 1/d)) = \log_{10}(2\frac{3}{2}\frac{4}{3}\frac{5}{4}...\frac{10}{9}) = \log_{10}(10) = 1$$
+\end{problem}
+
+\begin{problem}{4.} \hfill
+\begin{itemize}
+\item[(a)] $$\E[X] = \sum_{n=1}^\infty 2^nP(\text{first tail on flip } n) = \sum_{n=1}^\infty 2^n (\frac{1}{2})^n = \sum_{n=1}^\infty (\frac{2}{2})^n = \sum_{n=1}^\infty 1 = +\infty$$
+\item[(b)] \begin{equation*}
+\begin{aligned}
+&\E[\ln X] = \sum_{n=1}^\infty \ln(2^n) P(\text{first tail on flip } n) = \sum_{n=1}^\infty n \ln(2) (\frac{1}{2})^n 
+= \ln(2) \sum_{n=1}^\infty n(\frac{1}{2})^n =\\ &= \ln(2)*\frac{\frac{1}{2}}{(1-\frac{1}{2})^2} = 2 \ln(2)
+\end{aligned}
+\end{equation*}
+\end{itemize}
+\end{problem}
+
+\begin{problem}{5.} Let r be the risk free interest rate in both US and Switzerland. Then if the investors invest $n$ in the assets of their respective countries, their returns will be $(1+r)n$ since the interest rate is risk free. If they invest in a foreign country then
+$$\E[\text{foreign investment}] = 0.5[1.25(1+r)n + (1+r)n/1.25] = (1+r)n(1.025) > (1+r)n$$
+so the investors should invest in the asset of the foreign country. 
+\end{problem}
+
+\begin{problem}{6.} Let $\Omega = [0,1]$. 
+\begin{itemize}
+\item[(a)] Let $X$ be the map from $\Omega = [0,1]$ to the Pareto distribution on $\R$ where parameter $x_m = 1$. Then 
+\begin{equation*}
+\begin{aligned}
+f_X(x) = \begin{cases}
+               \frac{\alpha x_m^\alpha}{x^{\alpha +1}}  &\text{ for } x \leq 0 \\
+               0  &\text{ for } x<x_m \\
+            \end{cases}
+\end{aligned}
+\end{equation*}
+When $\alpha \in (1,2]$ the expectation is finite $\E[X] = \frac{\alpha x_m}{\alpha -1}$ and the variance is infinite so $\E[X^2] = \infty$.
+\item[(b)] Let $X$ be a uniform distribution on $[7.5, 7.51]$ so $\E[X] >7.5$ and let $Y$ be the polynomial distribution on $[0,10]$ with pdf $3/1000 x^2$ so $\E[Y] = 7.5$. Since $P(Y>7.51) >0.57$ we have that $P(Y > X) > 1/2$. 
+\item[(c)] Let $X$ be a uniform distribution on $[-3,3]$; $Y$ be a uniform distribution on $[-2,2]$ and let $Z$ be a uniform distribution on $[-1,1]$. Then $\E[X] = \E[Y] = \E[Z] = 0$ and $P(X>Y) P(Y>Z) P(X>Z) > 0$ since each probability is greater than 0.
+\end{itemize}
+\end{problem}
+
+\begin{problem}{7.} Let random variables $X,Z$ be independent and $X \sim N(0,1)$ and $P(Z=1)=P(Z=-1)=\frac{1}{2}$. Let $Y=XZ$. 
+\begin{itemize}
+\item[(a)] True, $f_Y(x) = f_{XZ}( x) = \frac{1}{2}(f_X(x) + f_X(-x))) =\frac{1}{2}[ \frac{1}{\sqrt{2\pi}}e^{-x^2/2} + \frac{1}{\sqrt{2\pi}}e^{-(-x)^2/2}] = \frac{1}{2}2 \frac{1}{\sqrt{2\pi}}e^{-x^2/2} = \frac{1}{\sqrt{2\pi}}e^{-x^2/2}$ so we have that $Y \sim N(0,1)$. 
+\item[(b)] True, $|Y| = |XZ| = |X|$ so $P(|X| = |Y|) = 1$. 
+\item[(c)] True, we easily show this by counter example: $P(Y>0 | X=0) = 0 \neq P(Y>0)$. 
+\item[(d)] True, $\Cov(X,Y)  = \E[XY]-\E[X]\E[Y] = \E[XXZ]-\E[X]\E[XZ] =  \E[X^2]\E[Z]-0*0 =  \E[X^2]*0 = 0$. 
+\item[(e)] False, we just showed using part(d) that it is possible for  $\Cov(X,Y) =0$ even when $X$ and $Y$ are not independent. 
+\end{itemize}
+\end{problem}
+
+\begin{problem}{8.} Let the random variables $X_i, i=1,2,...,n$ be i.i.d and $X_i \sim U[0,1]$. Let $m$ and $M$ be random variables such that $m = \min \{X_1, X_2,...,X_n\}$ and $M = \max \{X_1, X_2,...,X_n\}$. Then for $x \in [0,1]$ we have
+
+\begin{equation*}
+\begin{aligned}
+& P(M \leq x) =P(x \geq \max \{X_1, X_2,...,X_n\}) = P(x \geq X_1, x \geq X_2,..., x \geq X_n) =\\
+&= \Pi_{i=1}^n P(x \geq X_i) = (x)^n\\
+&P(m \leq x) = 1- P(m \geq x) = 1-\Pi_{i=1}^n P(X_i \geq x) =1-\Pi_{i=1}^n (1- P(X_i \leq x))= \\
+&= 1-(1-x)^n\\\\
+& F(m)=\begin{cases}
+               1  &\text{ for } x \leq 0 \\
+               1- (1-x)^{n}&\text{ for } x \in (0,1) \\
+               0 &\text{ for } x \geq 1
+            \end{cases}
+\hspace{1cm}
+ F(M)=\begin{cases}
+               0  &\text{ for } x \leq 0 \\
+               (x)^{n} &\text{ for } x \in (0,1) \\
+               1 &\text{ for } x \geq 1
+            \end{cases}\\\\
+&f_m(x) = n(1-x)^{n-1}\\
+&f_M(x) = n(x)^{n-1}\\\\
+&\E[m] = \int_0^1 xn(1-x)^{n-1} dx = \frac{1}{n+1}\\
+&\E[M] = \int_0^1 xn(x)^{n-1} dx = \frac{n}{n+1}
+\end{aligned}
+\end{equation*}
+
+\end{problem}
+
+\begin{problem}{9.} \hfill
+\begin{itemize}
+\item[(a)] We know that $X_i \sim \text{Bernoulli}(.5)$ where the $X_i$ are i.i.d with $\mu = 0.5$ and variance $p(1-p) = 0.25$ so 
+$$P( 490 < S_1000 < 510) = P(\frac{-10}{\sqrt{1000*0.5*0.5}} < \frac{S_1000 - 500}{\sqrt{1000*0.5*0.5}}) < \frac{10}{\sqrt{1000*0.5*0.5}})$$
+$$ \approx 2\Phi(.632)-1 = 0.47$$
+\item[(b)] By the Weak Law of Large Numbers, $$P(|\frac{S_{1000}}{1000} - \frac{1}{2}| \geq 0.005) \leq \frac{1}{4n*0.005^2} \leq 0.01$$
+Therefore we have that $n \geq 1000000$. 
+
+\end{itemize}
+\end{problem}
+
+\begin{problem}{10.} Let $\E[X] < 0$ and $\theta \neq 0$ such that $\E[e^{\theta X}] = 1$. Because $g(x) = e^x$ is a convex differentiable function, by Jensen's inequality,  $\E[e^{\theta X}] \geq  e^{\E[\theta X]} = e^{\theta \E[X]}$. Taking $\ln$ of both sides, we get that $0 = \ln(1) \geq \theta\E[X]$ and $\E[X] < 0$ and $\theta \neq 0$ implies that $0 > \theta\E[X]$ so $\theta >0$. 
+\end{problem}
+
+\end{document}
+
+
+
+
