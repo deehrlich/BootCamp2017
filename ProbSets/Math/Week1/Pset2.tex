@@ -1,0 +1,193 @@
+	 \documentclass[12pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{fancyhdr}
+\usepackage{setspace}
+\pagestyle{fancy}
+\usepackage{amsmath, amsthm, amssymb, amsfonts, mathtools, xfrac,mathrsfs}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{graphicx,dsfont}
+\usepackage{braket, bm}
+
+\everymath{\displaystyle}
+\headheight=20pt
+ 
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\E}{\mathrm{E}}
+\newcommand{\Var} {\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+
+\DeclareMathOperator{\Tr}{Tr}
+
+\def\mean#1{\left< #1 \right>}
+ 
+\newcommand*\rfrac[2]{{}^{#1}\!/_{#2}}
+ 
+\newenvironment{theorem}[2][Theorem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2}]}{\end{trivlist}}
+
+\newenvironment{problem}[2][Problem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2}]}{\end{trivlist}}
+
+\title{Homework}
+\lhead{Math OSM Lab}
+\chead{Homework 2 - 7/3/17}
+\rhead{Dan Ehrlich}
+ 
+\begin{document}
+
+\begin{problem}{1.} We have that $\| x + y \|^2 = \|x\|^2 + \|y\|^2 + 2\| x\|\|y\|\cos(\theta)$ and $\| x - y \|^2 = \|x\|^2 + \|y\|^2 - 2\| x\|\|y\|\cos(\theta)$ where $\cos(\theta) = \frac{\langle x,y \rangle}{\| x\|\|y\|}$ which is proven in the textbook. 
+\begin{itemize}
+\item [(i)]  $\frac{1}{4}(\| x + y \|^2 - \| x - y \|^2 )= \frac{1}{4} (\|x\|^2 + \|y\|^2 + 2\| x\|\|y\|\cos(\theta) - \|x\|^2 - \|y\|^2 + 2\| x\|\|y\|\cos(\theta)) = \frac{1}{4} (4\| x\|\|y\|\cos(\theta)) = \| x\|\|y\| \frac{\langle x,y \rangle}{\| x\|\|y\|} = \langle x,y \rangle$
+\item [(ii)]$ \frac{1}{2}(\| x + y \|^2 + \| x - y \|^2) = \frac{1}{2}( \|x\|^2 + \|y\|^2 + 2\| x\|\|y\|\cos(\theta) + \|x\|^2 + \|y\|^2 - 2\| x\|\|y\|\cos(\theta)) =  \frac{1}{2}(2(\|x\|^2 + \|y\|^2)) = \|x\|^2 + \|y\|^2$
+\end{itemize}
+\end{problem}
+
+\begin{problem}{2.} 
+\begin{equation*}
+\begin{aligned}
+& \frac{1}{4}(\| x + y \|^2 - \| x - y \|^2 + i\| x - iy \|^2 - i\| x + iy \|^2) = \langle x,y \rangle + \frac{1}{4}( i\| x - iy \|^2 - i\| x + iy \|^2) = \\
+& = \langle x,y \rangle + \frac{1}{4}( -i( ||x||^2 +\langle x, iy \rangle +\langle  iy ,x\rangle +||y||^2  - ||x||^2 +\langle x, iy \rangle +\langle  iy ,x\rangle -||y||^2)) = \\
+& = \langle x,y \rangle  + \frac{i}{4}(2i\langle x, y \rangle  - 2i\langle y,x \rangle ) = \langle x,y \rangle
+\end{aligned}
+\end{equation*}
+\end{problem}
+
+\begin{problem}{3.} \hfill
+\begin{itemize}
+\item [(i)] Let $f(x) = x$ and $g(x) = x^5$. Then 
+$$\theta = \cos^{-1} \big(\frac{\langle f,g \rangle}{\| f\|\|g\|} \big )= \cos^{-1}\big( \frac{\int_0^1 x^6 dx}{ \sqrt{\int_0^1 x^2 dx}\sqrt{\int_0^1 x^{10}dx}}\big) =\cos^{-1} \big(\frac{1/7}{\sqrt{1/3}\sqrt{1/11}}\big) = 0.608$$
+\item [(ii)] Let $f(x) = x^2$ and $g(x) = x^4$. Then 
+$$\theta = \cos^{-1}\big( \frac{\int_0^1 x^6 dx}{ \sqrt{\int_0^1 x^4 dx}\sqrt{\int_0^1 x^{8}dx}}\big) =\cos^{-1} \big(\frac{1/7}{\sqrt{1/5}\sqrt{1/3}}\big) = 0.984$$
+\end{itemize}
+\end{problem}
+
+\begin{problem}{8.}  \hfill
+\begin{itemize}
+\item [(i)] 
+$$\langle \cos(t), \sin(t) \rangle  = \frac{1}{\pi} \int_{-\pi}^{\pi} \cos(t) \sin(t) dt = \frac{1}{\pi} * 0 = 0 $$
+$$\langle \cos(t), \cos(2t) \rangle = \frac{1}{\pi} \int_{-\pi}^{\pi} \cos(t) \cos(2t) dt = 0 $$
+$$\langle \cos(t), \sin(2t) \rangle = \frac{1}{\pi} \int_{-\pi}^{\pi} \cos(t) \sin(2t) dt = 0 $$
+$$\langle \cos(t), \cos(t) \rangle = \frac{1}{\pi} \int_{-\pi}^{\pi} \cos(t) \cos(t) dt = 1 $$
+$$\langle \sin(t), \cos(2t) \rangle = \frac{1}{\pi} \int_{-\pi}^{\pi} \sin(t) \cos(2t) dt = 0 $$
+$$\langle \sin(t), \sin(2t) \rangle = \frac{1}{\pi} \int_{-\pi}^{\pi} \sin(t) \sin(2t) dt = 0 $$
+$$\langle \sin(t), \sin(t) \rangle = \frac{1}{\pi} \int_{-\pi}^{\pi} \sin(t) \sin(t) dt = 1 $$
+$$\langle \cos(2t), \sin(2t) \rangle = \frac{1}{\pi} \int_{-\pi}^{\pi} \cos(2t) \sin(2t)dt = 0 $$
+$$\langle \cos(2t), \cos(2t) \rangle = \frac{1}{\pi} \int_{-\pi}^{\pi} \cos(2t) \cos(2t) dt = 1 $$
+$$\langle \sin(2t), \sin(2t) \rangle = \frac{1}{\pi} \int_{-\pi}^{\pi} \sin(2t) \sin(2t) dt = 1$$
+\item [(ii)] $$\|t\| = \sqrt{\frac{1}{\pi} \int_{-\pi}^{\pi} t^2 dt}  = \sqrt{\frac{2\pi^3}{3}}$$
+\item [(iii)] 
+\begin{equation*}
+\begin{aligned}
+&\textit{proj}_X(\cos(3t)) = \langle \cos(t), \cos(3t) \rangle + \langle \sin(t), \cos(3t) \rangle + \langle \cos(2t), \cos(3t) \rangle + \langle \sin(2t), \cos(3t) \rangle = \\
+& = \frac{1}{\pi} \int_{-\pi}^{\pi} \cos(t) \cos(3t) dt  + \frac{1}{\pi} \int_{-\pi}^{\pi} \sin(t) \cos(3t) dt + \frac{1}{\pi} \int_{-\pi}^{\pi} \cos(2t) \cos(3t) dt + \\
+& + \frac{1}{\pi} \int_{-\pi}^{\pi} \sin(2t) \cos(3t) dt  = 0 + 0 + 0 + 0 = 0
+\end{aligned}
+\end{equation*}
+\item [(iv)] 
+\begin{equation*}
+\begin{aligned}
+&\textit{proj}_X(t) = \frac{1}{\pi} \int_{-\pi}^{\pi} t\cos(t) dt  + \frac{1}{\pi} \int_{-\pi}^{\pi} t\sin(t)dt + \frac{1}{\pi} \int_{-\pi}^{\pi} t\cos(2t)dt + \frac{1}{\pi} \int_{-\pi}^{\pi} t\sin(2t) dt \\
+&= \frac{1}{\pi}(0 + 2\pi +0 - \pi) = 1
+\end{aligned}
+\end{equation*}
+\end{itemize}
+\end{problem}
+
+\begin{problem}{9.} Let $x = (x_1, x_2)$ and let $y = (y_1, y_2)$. Then $R_\theta x = (\cos(\theta)x_1-\sin(\theta)x_2, \sin(\theta)x_1 + \cos(\theta)x_2)$ and $R_\theta y = (\cos(\theta)y_1-\sin(\theta)y_2, \sin(\theta)y_1 + \cos(\theta)y_2)$. We now expand: 
+\begin{equation*}
+\begin{aligned}
+\langle R_\theta x, R_\theta y \rangle = & (\cos(\theta)x_1-\sin(\theta)x_2)*(\cos(\theta)y_1-\sin(\theta)y_2) + \\& (\sin(\theta)x_1 + \cos(\theta)x_2)*(\sin(\theta)y_1 + \cos(\theta)y_2)
+= \\ 
+& \cos(\theta)^2x_1y_1 - \sin(\theta)\cos(\theta)x_2y_1 - \cos(\theta)\sin(\theta)x_1y_2 + \sin(\theta)^2x_2y_2 + \\
+&  \sin(\theta)^2x_1y_1 + \cos(\theta)^2x_2 y_2 + \cos(\theta)\sin(\theta)x_1y_2 + \cos(\theta)\sin(\theta)x_2y_1 = \\
+& (x_1y_1 + x_2y_2)( \cos(\theta)^2 + \sin(\theta)^2)  =  x_1y_1 + x_2y_2 = \langle x, y \rangle
+\end{aligned}
+\end{equation*}
+\end{problem}
+
+\begin{problem}{10.} Let $Q \in M_n(\mathbb{F})$ be an orthonormal matrix. 
+\begin{itemize}
+\item [(i)] $(\Rightarrow)$ Let $Q \in M_n(\mathbb{F})$ be an orthonormal matrix. Then $\langle Qx, Qy \rangle  = \langle x,y \rangle$ which expanding gives $\langle Qx, Qy \rangle = x^HQ^HQy = x^Hy$. This implies that $Q^HQ = I$. By Proposition 3.2.12, since $Q$ is an orthonormal operator and $\mathbb{F}^n$ is finite dimensional, $Q$ is invertible. Since inverses are unique,  $Q^{-1}  = Q^H$ so $Q^HQ = QQ^H = I$. \\
+$(\Leftarrow)$ Let $Q^HQ = QQ^H = I$. Then $\langle Qx, Qy \rangle = x^HQ^HQy = x^HIy = x^Hy = \langle x,y \rangle$.
+
+\item [(ii)] This follows directly from part $i$. $\|Qx\| = \sqrt{\langle Qx, Qx \rangle} = \sqrt{\langle x, x \rangle} = \|x\|$. 
+\item [(iii)] By part $i$ we have $Q^{-1}  = Q^H$. Then $\langle Q^Hx, Q^Hy \rangle = x^HQQ^Hy = x^HIy = x^Hy = \langle x,y \rangle$.
+\item [(iv)] Consider $\langle Qe_i, Qe_j \rangle = \langle e_i,e_j \rangle = \delta_{ij}$ which is the Kronecker delta. $Qe_i$ is column $i$ of matrix $Q$, so the dot product of column $i$ with itself is 1 and 0 when $i \neq j$, implying the columns of an orthonormal matrix are orthonormal.  
+\item [(v)] $\det(QQ^H) = \det(I) = 1$. Since $\det(Q) = \det(Q^H)$ we have $\det(Q)^2= 1$ so $\det(Q)= 1$. The converse is not necessarily true. Consider: 
+\[ A= 
+\begin{bmatrix}
+    1   & 1 & 0 \\
+    0   & 1& 0 \\
+    0   & 0 &1 
+\end{bmatrix}
+\]
+The matrix $A$ is upper triangular and therefore has $\det(A) = 1$ but is not orthonormal because column 2 dot product itself is not equal to 1 which needs to be true by part $(iv)$. 
+\item [(vi)] Let $Q_1, Q_2$ be orthonormal. Then $\langle Q_1Q_2x, Q_1Q_2y \rangle = x^HQ_2^HQ_1^HQ_1Q_2y = x^HQ_2^HIQ_2y = x^HQ_2^HQ_2y = x^Hy = \langle x ,y \rangle$ so the product $Q_1Q_2$ is orthonormal. 
+\end{itemize}
+\end{problem}
+
+\begin{problem}{11.} Apply the Gram-Schmidt orthonormalization process to a collection of linearly dependent vectors 
+\end{problem}
+
+\begin{problem}{16.} 
+\end{problem}
+
+\begin{problem}{17.} 
+Let $A = \widehat{Q}\widehat{R}$ be reduced QR decomposition. Then the system $A^HAx = A^Hb$ can be rewritten as 
+\begin{equation*}
+\begin{aligned}
+&(\widehat{Q}\widehat{R})^H(\widehat{Q}\widehat{R})x = (\widehat{Q}\widehat{R})^Hb\\
+& \Leftrightarrow \widehat{R}^H\widehat{Q}^H\widehat{Q}\widehat{R}x = \widehat{R}^H\widehat{Q}^Hb \\ &\Leftrightarrow \widehat{R}^H\widehat{R}x = \widehat{R}^H\widehat{Q}^Hb \\
+&\Leftrightarrow \widehat{R}x = \widehat{Q}^Hb 
+\end{aligned}
+\end{equation*}
+\end{problem}
+
+\begin{problem}{23.} 
+We have that $\|x\| = \|x - y + y\| \leq \|x-y\| + \|y\|$ so  $\|x\| - \|y\|  \leq \|x-y\| $. Similarly, $\|y\| - \|x\|  \leq \|x-y\|$ since $\|x-y\| = \|y-x\|$. Putting these together implies that $|\|x\| - \|y\|| \leq \|x-y\|$ because if $\|x\| > \|y\|$ then $|\|x\| - \|y\|| =  \|x\| - \|y\| $ and else $|\|x\| - \|y\|| = \|y\| - \|x\|$.
+\end{problem}
+
+\begin{problem}{24.} \hfill
+\begin{itemize}
+\item [(i)] 
+\item [(ii)] 
+\item [(iii)]
+\end{itemize} 
+\end{problem}
+
+\begin{problem}{26.} 
+\end{problem}
+
+
+\begin{problem}{28.} 
+\end{problem}
+
+
+\begin{problem}{29.} 
+\end{problem}
+
+
+\begin{problem}{30.} 
+\end{problem}
+
+\begin{problem}{37.} 
+\end{problem}
+
+\begin{problem}{47.} Let $P = A(A^HA)^{-1}A^H$.
+\begin{itemize}
+\item [(i)]  Since $(A^HA)^{-1}A^HA= I$ we have that $$P^2 =PP= A(A^HA)^{-1}A^HA(A^HA)^{-1}A^H = A(A^HA)^{-1}A^H = P$$
+\item [(ii)] We prove this by induction. We show the base case in part $i$. Now assume that $P^H = P$. Then $P^{H+1} = P^HP = PP = P^2 = P$. 
+\item [(iii)]
+\end{itemize} 
+\end{problem}
+
+\end{document}
+
+
+
+
