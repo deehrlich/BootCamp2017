@@ -131,7 +131,12 @@ The matrix $A$ is upper triangular and therefore has $\det(A) = 1$ but is not or
 \end{itemize}
 \end{problem}
 
-\begin{problem}{11.} Apply the Gram-Schmidt orthonormalization process to a collection of linearly dependent vectors 
+\begin{problem}{11.} Applying the Gram-Schmidt orthonormalization process to a collection of linearly dependent vectors we are ultimately forced to divide by zero when trying to form the orthonormal vector for the first dependent vector in the set. We can see this by setting WLOG the first dependent vector to be the second vector in the set. Then 
+$$q_1 = \frac{x_1}{\|x_1\|}$$
+$$q_2 = \frac{x_2 - p_2}{\|x_2 - p_2\|}$$
+where $p_2 = \langle x_2, q_1 \rangle q_1$. However, assuming $x_2 = a_1 x_1$, we have that 
+$$p_2 =  \langle a_1 x_1,  \frac{x_1}{\|x_1\|} \rangle  \frac{x_1}{\|x_1\|} = \langle   \frac{x_1}{\|x_1\|},  \frac{x_1}{\|x_1\|} \rangle   a_1x_1 = a_1x_1 = x_2$$
+so $x_2 - p_2 = 0$. 
 \end{problem}
 
 \begin{problem}{16.} 
@@ -181,8 +186,8 @@ We have that $\|x\| = \|x - y + y\| \leq \|x-y\| + \|y\|$ so  $\|x\| - \|y\|  \l
 \begin{problem}{47.} Let $P = A(A^HA)^{-1}A^H$.
 \begin{itemize}
 \item [(i)]  Since $(A^HA)^{-1}A^HA= I$ we have that $$P^2 =PP= A(A^HA)^{-1}A^HA(A^HA)^{-1}A^H = A(A^HA)^{-1}A^H = P$$
-\item [(ii)] We prove this by induction. We show the base case in part $i$. Now assume that $P^H = P$. Then $P^{H+1} = P^HP = PP = P^2 = P$. 
-\item [(iii)]
+\item [(ii)] $P^H = (A(A^HA)^{-1}A^H)^H = (A^H)^H ((A^HA)^{-1})^H A^H = A ((A^HA)^H)^{-1}A^H = A(A^HA)^{-1}A^H = P$
+\item [(iii)] 
 \end{itemize} 
 \end{problem}
 

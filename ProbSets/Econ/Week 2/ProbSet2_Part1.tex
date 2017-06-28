@@ -94,7 +94,7 @@ $$
     \right\}
     \, p_k
 $$
-We need to show that $T(x): \R_+ \to \R_+$  is a contraction mapping where $T(x) =  c (1-\beta) + \beta \sum_{k=1}^K \max \left\{w_k ,\, x\right\} \, p_k$. Consider
+and that $T(x): \R_+ \to \R_+$  where $T(x) =  c (1-\beta) + \beta \sum_{k=1}^K \max \left\{w_k ,\, x\right\} \, p_k$. First, we see that $\R_+$ is complete metric space because $\R$ is a complete metric space and $\R_+ \in \R$ is closed since it includes $0$. Second, we need to show that $T$ is a contraction mapping. Consider
 \begin{equation*}
 \begin{aligned}
  |T(x)- T(y)| & =  \big |c (1-\beta) + \beta \sum_{k=1}^K \max \left\{w_k ,\, x\right\} \, p_k - c (1-\beta) + \beta \sum_{k=1}^K \max \left\{w_k ,\, y\right\} \, p_k \big |=\\
@@ -107,7 +107,7 @@ We need to show that $T(x): \R_+ \to \R_+$  is a contraction mapping where $T(x)
 \end{equation*} 
 And finally $\rho(T(x), T(y)) \leq \beta \rho(x,y)$ which proves that $T$ is a contraction mapping and there exists a fixed point solution, or in other words, a $\bar w$ such that unemployed individuals offered a wage above $\bar w$ will choose to accept it, and will reject those below. They are indifferent if offered wage $\bar w$. Furthermore, $\bar w$ can be found by guessing an initial value and using successive approximations as in problem 1. \\\\
 \noindent\textbf{Problem 3} 
-For any and all code refer to the file "DP\_part1.py". As unemployment benefits increase, $\bar w$ increases as well. Increased benefits increase the value of staying unemployed, so individuals are willing to wait for a higher wage offer. We can solve for $\frac{\partial \bar w}{\partial c}$ explicitly: 
+For any and all code refer to the python notebook "DP\_part1". As unemployment benefits increase, $\bar w$ increases as well. Increased benefits increase the value of staying unemployed, so individuals are willing to wait for a higher wage offer. We can solve for $\frac{\partial \bar w}{\partial c}$ explicitly: 
 
 $$\frac{\partial \bar w}{\partial c} = \frac{1}{1+\frac{\beta}{1-\beta}[1-G(\bar w)]} > 0$$
 where $G$ is the wage offer distribution.  A graph is show below. 
