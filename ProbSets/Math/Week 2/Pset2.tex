@@ -12,7 +12,8 @@
 
 \everymath{\displaystyle}
 \headheight=20pt
- 
+
+
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\Q}{\mathbb{Q}}
@@ -20,6 +21,7 @@
 \newcommand{\E}{\mathrm{E}}
 \newcommand{\Var} {\mathrm{Var}}
 \newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\F}{\mathbb{F}}
 
 \DeclareMathOperator{\Tr}{Tr}
 
@@ -60,9 +62,9 @@
 \begin{problem}{3.} \hfill
 \begin{itemize}
 \item [(i)] Let $f(x) = x$ and $g(x) = x^5$. Then 
-$$\theta = \cos^{-1} \big(\frac{\langle f,g \rangle}{\| f\|\|g\|} \big )= \cos^{-1}\big( \frac{\int_0^1 x^6 dx}{ \sqrt{\int_0^1 x^2 dx}\sqrt{\int_0^1 x^{10}dx}}\big) =\cos^{-1} \big(\frac{1/7}{\sqrt{1/3}\sqrt{1/11}}\big) = 0.608$$
+$$\theta = \cos^{-1} \big(\frac{\langle f,g \rangle}{\| f\|\|g\|} \big )= \cos^{-1}\big( \frac{\int_0^1 x^6 dx}{ \sqrt{\int_0^1 x^2 dx}\sqrt{\int_0^1 x^{10}dx}}\big) =\cos^{-1} \big(\frac{1/7}{\sqrt{1/3}\sqrt{1/11}}\big) = 0.61$$
 \item [(ii)] Let $f(x) = x^2$ and $g(x) = x^4$. Then 
-$$\theta = \cos^{-1}\big( \frac{\int_0^1 x^6 dx}{ \sqrt{\int_0^1 x^4 dx}\sqrt{\int_0^1 x^{8}dx}}\big) =\cos^{-1} \big(\frac{1/7}{\sqrt{1/5}\sqrt{1/3}}\big) = 0.984$$
+$$\theta = \cos^{-1}\big( \frac{\int_0^1 x^6 dx}{ \sqrt{\int_0^1 x^4 dx}\sqrt{\int_0^1 x^{8}dx}}\big) =\cos^{-1} \big(\frac{1/7}{\sqrt{1/5}\sqrt{1/9}}\big) = 0.29$$
 \end{itemize}
 \end{problem}
 
@@ -79,20 +81,20 @@ $$\langle \sin(t), \sin(t) \rangle = \frac{1}{\pi} \int_{-\pi}^{\pi} \sin(t) \si
 $$\langle \cos(2t), \sin(2t) \rangle = \frac{1}{\pi} \int_{-\pi}^{\pi} \cos(2t) \sin(2t)dt = 0 $$
 $$\langle \cos(2t), \cos(2t) \rangle = \frac{1}{\pi} \int_{-\pi}^{\pi} \cos(2t) \cos(2t) dt = 1 $$
 $$\langle \sin(2t), \sin(2t) \rangle = \frac{1}{\pi} \int_{-\pi}^{\pi} \sin(2t) \sin(2t) dt = 1$$
-\item [(ii)] $$\|t\| = \sqrt{\frac{1}{\pi} \int_{-\pi}^{\pi} t^2 dt}  = \sqrt{\frac{2\pi^3}{3}}$$
+\item [(ii)] $$\|t\| = \sqrt{\frac{1}{\pi} \int_{-\pi}^{\pi} t^2 dt}  = \sqrt{\frac{2\pi^2}{3}}$$
 \item [(iii)] 
 \begin{equation*}
 \begin{aligned}
-&\textit{proj}_X(\cos(3t)) = \langle \cos(t), \cos(3t) \rangle + \langle \sin(t), \cos(3t) \rangle + \langle \cos(2t), \cos(3t) \rangle + \langle \sin(2t), \cos(3t) \rangle = \\
-& = \frac{1}{\pi} \int_{-\pi}^{\pi} \cos(t) \cos(3t) dt  + \frac{1}{\pi} \int_{-\pi}^{\pi} \sin(t) \cos(3t) dt + \frac{1}{\pi} \int_{-\pi}^{\pi} \cos(2t) \cos(3t) dt + \\
-& + \frac{1}{\pi} \int_{-\pi}^{\pi} \sin(2t) \cos(3t) dt  = 0 + 0 + 0 + 0 = 0
+&\textit{proj}_X(\cos(3t)) = \langle \cos(3t), \cos(t) \rangle \cos(t)+ \langle  \cos(3t),\sin(t) \rangle \sin(t)+ \langle  \cos(3t),\cos(2t) \rangle\cos(2t) \\
+&+ \langle \cos(3t),\sin(2t) \rangle\sin(2t)  = \frac{\cos(t)}{\pi} \int_{-\pi}^{\pi} \cos(t) \cos(3t) dt  + \frac{\sin(t)}{\pi} \int_{-\pi}^{\pi} \sin(t) \cos(3t) dt + \\
+& \frac{\cos(2t)}{\pi} \int_{-\pi}^{\pi} \cos(2t) \cos(3t) dt + \frac{\sin(2t)}{\pi} \int_{-\pi}^{\pi} \sin(2t) \cos(3t) dt  = 0 + 0 + 0 + 0 = 0
 \end{aligned}
 \end{equation*}
 \item [(iv)] 
 \begin{equation*}
 \begin{aligned}
-&\textit{proj}_X(t) = \frac{1}{\pi} \int_{-\pi}^{\pi} t\cos(t) dt  + \frac{1}{\pi} \int_{-\pi}^{\pi} t\sin(t)dt + \frac{1}{\pi} \int_{-\pi}^{\pi} t\cos(2t)dt + \frac{1}{\pi} \int_{-\pi}^{\pi} t\sin(2t) dt \\
-&= \frac{1}{\pi}(0 + 2\pi +0 - \pi) = 1
+&\textit{proj}_X(t) = \frac{\cos(t)}{\pi} \int_{-\pi}^{\pi} t\cos(t) dt  + \frac{\sin(t)}{\pi} \int_{-\pi}^{\pi} t\sin(t)dt + \frac{\cos(2t)}{\pi} \int_{-\pi}^{\pi} t\cos(2t)dt \\
+& + \frac{\sin(2t)}{\pi} \int_{-\pi}^{\pi} t\sin(2t) dt = \frac{1}{\pi}(0 + 2\pi\sin(t) +0 - \pi\sin(2t)) = 2\sin(t) -\sin(2t)
 \end{aligned}
 \end{equation*}
 \end{itemize}
@@ -139,7 +141,12 @@ $$p_2 =  \langle a_1 x_1,  \frac{x_1}{\|x_1\|} \rangle  \frac{x_1}{\|x_1\|} = \l
 so $x_2 - p_2 = 0$. 
 \end{problem}
 
-\begin{problem}{16.} 
+\begin{problem}{16.} \hfill
+\begin{itemize}
+\item [(i)] The $QR$ factorization is not unique. Consider $QR = QIR = QDD^{-1}R$ where $D$ is a diagonal matrix with $-1$ on the diagonal. Because $D$ is diagonal, $D^{-1}$ is also diagonal. Diagonal matrices are upper triangular, and upper triangular matrices are closed under multiplication, so $R' = D^{-1}R$ is upper triangular. Additionally, $Q'  = QD$ is also orthonormal because it is equivalent to $Q$ multiplied by $-1$. Therefore $Q'R' = QR$ and the QR decomposition is not unique.
+ 
+\item [(ii)] Let A be invertible and let there be a QR decompositions $A = Q_1R_1 = Q_2R_2$.  Then $Q_2^HQ^1 = R_2R_1^{-1}$. Both orthonormal and upper triangular matrices are closed under multiplication so the matrix $Q_2^HQ^1$ is both upper triangular and orthonormal. And upper triangular matrix that is orthonormal is a diagonal matrix with either $1$ or $-1$ on the diagonal. Both $R_2$  and  $R_1$ have positive diagonal elements so the matrix $Q_2^HQ^1$ must positive $1$ on the diagonal.  Therefore $I = Q_2^HQ^1 = R_2R_1^{-1}$ so $R_2 = R_1$. 
+\end{itemize} 
 \end{problem}
 
 \begin{problem}{17.} 
@@ -157,19 +164,50 @@ Let $A = \widehat{Q}\widehat{R}$ be reduced QR decomposition. Then the system $A
 We have that $\|x\| = \|x - y + y\| \leq \|x-y\| + \|y\|$ so  $\|x\| - \|y\|  \leq \|x-y\| $. Similarly, $\|y\| - \|x\|  \leq \|x-y\|$ since $\|x-y\| = \|y-x\|$. Putting these together implies that $|\|x\| - \|y\|| \leq \|x-y\|$ because if $\|x\| > \|y\|$ then $|\|x\| - \|y\|| =  \|x\| - \|y\| $ and else $|\|x\| - \|y\|| = \|y\| - \|x\|$.
 \end{problem}
 
-\begin{problem}{24.} \hfill
+\begin{problem}{24.} For each norm we show three things: positivity, scale preservation, and the triangle inequality. Note that the absolute value $| f(t) |$ is nonnegative and only equal to $0$ if the function $f(t) = 0$.
 \begin{itemize}
-\item [(i)] 
-\item [(ii)] 
-\item [(iii)]
+\item [(1)]\begin{itemize}
+\item [(i)] By the note above, the integrand $| f(t)|$ is nonnegative. Therefore the integral is non negative. The integral of a non-negative function is only equal to $0$ on $[a,b]$ if the function is equal to $0$ on $[a,b]$. 
+\item [(ii)] $\|af\|_{L_1} = \int_a^b |af(t)| dt = \int_a^b |a||f(t)| dt = |a|\int_a^b |f(t)| dt = |a| \|f\|_{L_1}$
+\item [(iii)] $\|f + g\|_{L_1} = \int_a^b |f(t) + g(t)| dt \leq \int_a^b( |f(t)| + |g(t)|) dt = \|f\|_{L_1} + \|g\|_{L_1}$
+
+\end{itemize} 
+\item [(2)] \begin{itemize}
+\item [(i)] By the note above, the integrand $| f(t)|^2$ is nonnegative. Therefore the integral is non negative. The integral of a non-negative function is only equal to $0$ on $[a,b]$ if the function is equal to $0$ on $[a,b]$. Furthermore, the square root is also non-negative. 
+\item [(ii)] $\|af\|_{L_2} = \left(\int_a^b |af(t)|^2 dt\right)^{\frac{1}{2}} =  \left(\int_a^b a^2|f(t)|^2 dt\right)^{\frac{1}{2}}  =  |a|\left(\int_a^b |f(t)|^2 dt\right)^{\frac{1}{2}}  = |a| \|f\|_{L_2}$
+\item [(iii)] $\|f + g\|_{L_2}^2 = \int_a^b |f(t) + g(t)|^2 dt  \leq \int_a^b (|f(t)| + |g(t)|)^2  = $ \\\\
+$ = \int_a^b( |f(t)|^2 + |g(t)|^2 +2|f(t)||g(t)|) dt = (\|f\|_{L_2} + \|g\|_{L_2})^2$\\\\
+Therefore $\|f + g\|_{L_2} \leq \|f\|_{L_2} + \|g\|_{L_2}$. 
+\end{itemize} 
+
+\item [(3)]
+\begin{itemize}
+\item [(i)] By the note above, $| f(t)|$ is nonnegative. Then $\sup_{x\in [a,b]} |f(x)| = 0$ if and only if  $| f(x) | = 0$ because if $| f(x) | > 0$ for some $x \in [a,b]$ then by definition $\sup_{x\in [a,b]} |f(x)| > 0$. 
+\item [(ii)] $\|af\|_{\infty}=  \sup_{x\in [a,b]} |af(x)| dt =  \sup_{x\in [a,b]}  |a||f(x)|= |a| \sup_{x\in [a,b]} |f(x)|  = |a| \|f\|_{\infty}$
+\item [(iii)] $\|f + g\|_{\infty}=  \sup_{x\in [a,b]} |f(x) + g(x)| dt \leq  \sup_{x\in [a,b]} |f(x)| + |g(x)| = \|f\|_{\infty} + \|g\|_{\infty}$
+\end{itemize} 
 \end{itemize} 
 \end{problem}
 
-\begin{problem}{26.} 
+\begin{problem}{26.} To show that topological equivalence is an equivalence relation we show three things: reflexivity, symmetry, and transitivity. Let $0 < m \leq M$. 
+\begin{itemize}
+\item [(i)] Let $m  = \frac{1}{2}$ and $M = 2$. Then $m\|\cdot\|_a \leq \|\cdot\|_a \leq M\|\cdot\|_a$ so $\|\cdot\|_a \sim \|\cdot\|_a$. 
+\item [(ii)] Let $\|\cdot\|_a \sim \|\cdot\|_b$ so $m\|\cdot\|_a \leq \|\cdot\|_b \leq M\|\cdot\|_a$. Then it follows form the previous inequality that  $\frac{1}{M}\|\cdot\|_b \leq \|\cdot\|_a \leq \frac{1}{m}\|\cdot\|_b$ so $\|\cdot\|_a \sim \|\cdot\|_b$ if and only if $\|\cdot\|_b \sim \|\cdot\|_a$. 
+\item [(iii)] Let $\|\cdot\|_a \sim \|\cdot\|_b$ and Let $\|\cdot\|_b \sim \|\cdot\|_c$. Then $m_1\|\cdot\|_a \leq \|\cdot\|_b \leq M_1\|\cdot\|_a$ and $m_2\|\cdot\|_b \leq \|\cdot\|_c \leq M_2\|\cdot\|_b$. It follows then that $m_1m_2\|\cdot\|_a \leq m_2\|\cdot\|_b \leq M_2\|\cdot\|_b \leq M_1M_2\|\cdot\|_a$ and substituting in the second inequality we have that $m_1m_2\|\cdot\|_a \leq m_2\|\cdot\|_b \leq \|\cdot\|_c \leq M_2\|\cdot\|_b \leq M_1M_2\|\cdot\|_a$ so $\|\cdot\|_a \sim \|\cdot\|_c$. 
+\end{itemize} 
+We now show that the p-norms for $p = 1,2,\infty$ on $\F^n$ are topologically equivalent. 
+\begin{itemize}
+\item [(i)]  
+\item [(ii)] 
+\end{itemize} 
 \end{problem}
 
 
-\begin{problem}{28.} 
+\begin{problem}{28.} \hfill
+\begin{itemize}
+\item [(i)]  
+\item [(ii)] 
+\end{itemize} 
 \end{problem}
 
 
@@ -177,18 +215,141 @@ We have that $\|x\| = \|x - y + y\| \leq \|x-y\| + \|y\|$ so  $\|x\| - \|y\|  \l
 \end{problem}
 
 
-\begin{problem}{30.} 
+\begin{problem}{30.} To show that $\| \cdot \|_S$ is a matrix norm we show four things:
+\begin{itemize}
+\item [(i)]  Positivity: $\|A\|_S = \|S(A)S^{-1}\|$ where $\| \cdot \|$ is norm, which being a norm is nonnegative. 
+\item [(ii)] Scale: $\|\alpha A\|_S = \|S(\alpha A)S^{-1}\| = |\alpha| S(A)S^{-1}\|= |\alpha| \| A\|_S$
+\item [(iii)] Triangle Inequality: $\|A+B\|_S =  \|S(A + B)S^{-1}\| = \|SAS^{-1} + SBS^{-1}\| \leq  \|SAS^{-1}\| + \|SBS^{-1}\| = \|A\|_S + \|B\|_S$. 
+\item [(iv)] Submultiplicativity: $\|AB\|_S = \|S(AB)S^{-1}\| = \|SAIBS^{-1}\|  = \|SAS^{-1}SBS^{-1}\| \leq \|SAS^{-1}\|\|SBS^{-1}\| = \|A\|_S\|B\|_S$
+\end{itemize} 
 \end{problem}
 
 \begin{problem}{37.} 
+Let $q=180x^2 -168x+24$ and  let $p \in \R[x;2]$ where $p$ can be written as  $p=ax^2 +bx+c$. Then
+\begin{equation*}
+\begin{aligned}
+ \langle q,p \rangle &= \int_0^1 qpdx =\\
+ &= \int_0^1 (180ax^4 - 168ax^3 + 24ax^2 + 180bx^3 -168bx^2   + 24bx + 180cx^2 - 168cx + 24c)dx \\
+ &= (\frac{180}{5} - \frac{168}{4} + \frac{24}{3})a + (\frac{180}{4} - \frac{168}{3} + \frac{24}{2})b + (\frac{180}{3} - \frac{168}{2} +24)c = \\
+ & =  2a + b = p'(1) = L[p]
+ \end{aligned}
+ \end{equation*}
+\end{problem}
+
+\begin{problem}{38.} 
+Let $D: V \to V$ be the derivative operator where $V  = \F[x;2]$ is a subspace of the inner product space $L^2([0,1]; \R)$. Given the basis $[1,x,x^2]$ we can write the matrix representation of $D$:
+\[
+   D=
+  \left[ {\begin{array}{ccc}
+   0 & 1 & 0\\
+   0 & 0 & 2\\
+   0 & 0 & 0\\
+  \end{array} } \right]
+\]
+We now show that D is the derivative operator. Let $p \in V$ so $p$ can be written as  $p=ax^2 +bx+c$. Then 
+\[
+   D[p](x)=
+  \left[ {\begin{array}{ccc}
+   0 & 1 & 0\\
+   0 & 0 & 2\\
+   0 & 0 & 0\\
+  \end{array} } \right]
+  \left[ {\begin{array}{c}
+   c \\
+   b \\
+   a \\
+  \end{array} } \right] = 
+  \left[ {\begin{array}{c}
+   b \\
+   2a \\
+   0 \\
+  \end{array} } \right]= 0x^3 + 2ax + b  = p'(x)
+\] 
+Furthermore, the adjoint is the Hermitian, so we can write the matrix representation of $D^*$:
+\[
+   D^* =
+  \left[ {\begin{array}{ccc}
+   0 & 0 & 0\\
+   1 & 0 & 0\\
+   0 & 2 & 0\\
+  \end{array} } \right]
+\] 
+
+\end{problem}
+
+\begin{problem}{39.} \hfill
+\begin{itemize}
+\item [(i)]  
+\item [(ii)] 
+\item [(iii)]  
+\item [(iv)] 
+\end{itemize} 
+\end{problem}
+
+\begin{problem}{40.} \hfill
+\begin{itemize}
+\item [(i)] $ \langle A^*B,C \rangle  = \langle B,AC \rangle = tr(B^HAC) = tr((A^HB)^HC) = \langle A^HB,C \rangle$ so $A^* = A^H$. 
+\item [(ii)] $\langle A_2, A_3A_1 \rangle = tr(A_2^HA_3A_1) = tr(A_1A_2^HA_3) = tr((A_2A_1^H)^HA_3) = \langle A_2 A_1^H, A_3\rangle =$ \\\\
+$=  \langle A_2 A_1^*, A_3\rangle$ where the last equality follows by part (i).
+\item [(iii)] $\langle A^HX -XA^H, C \rangle = tr((A^HX -XA^H)^HC) = tr((A^HX)^HC -(XA^H)^HC) = $\\\\
+$ =  tr(X^HAC -AX^HC) =  tr(X^HAC - X^HCA) = \langle X, AC - CA \rangle = $\\\\
+$  =  \langle (AX - XA)^H, C \rangle$
+
+\end{itemize} 
+\end{problem}
+
+\begin{problem}{44.} 
+Let $A \in M_{m \times n}$, $b \in \F^m$. If the equation $Ax = b$ has a solution then $b \in R(A)$ and it is orthogonal to $N(A^T)$ so if $y \in N(A^T)$ then $\langle y ,b \rangle = 0$. If there is no solution to the equation, then $b \not\in R(A)$ and it is not orthogonal to $N(A^T)$. If $p$ is the projection of $b$ onto $N(A^H)$ then $p^Hb = p^Hp \neq 0$. If $y = \frac{p}{p^Hp}$ then $A^Hy = \frac{A^Hp}{p^Hp} = 0$. Furthermore, $\langle y ,b \rangle = y^Hb = \frac{p^Hb}{p^Hp} = 1 \neq 0$. 
+\end{problem}
+
+\begin{problem}{45.} 
+\end{problem}
+
+\begin{problem}{46.} \hfill
+\begin{itemize}
+\item [(i)]  
+\item [(ii)] 
+\item [(iii)] 
+\end{itemize} 
 \end{problem}
 
 \begin{problem}{47.} Let $P = A(A^HA)^{-1}A^H$.
 \begin{itemize}
 \item [(i)]  Since $(A^HA)^{-1}A^HA= I$ we have that $$P^2 =PP= A(A^HA)^{-1}A^HA(A^HA)^{-1}A^H = A(A^HA)^{-1}A^H = P$$
 \item [(ii)] $P^H = (A(A^HA)^{-1}A^H)^H = (A^H)^H ((A^HA)^{-1})^H A^H = A ((A^HA)^H)^{-1}A^H = A(A^HA)^{-1}A^H = P$
-\item [(iii)] 
+\item [(iii)] The rank of an idempotent matrix is equal to the trace of the matrix. Therefore, 
+$$ rank(P) = tr(P) = tr(A(A^HA)^{-1}A^H) = tr((A^HA)^{-1}A^HA) =  tr(I_{n \times n}) = n$$
 \end{itemize} 
+\end{problem}
+
+\begin{problem}{48.} \hfill
+\begin{itemize}
+\item [(i)]  To show linearity we show two things:
+\begin{itemize}
+\item [(1)]  $P(A + B) = \frac{A + B + (A+B) ^T}{2} = \frac{A + B + A^T +B ^T}{2} = \frac{A +A ^T}{2} + \frac{B +B ^T}{2} = P(A) + P(B)$
+\item [(2)]  $P(\alpha A) = \frac{\alpha A +\alpha A ^T}{2} = \alpha \frac{A +A ^T}{2} = \alpha P(A)$
+\end{itemize} 
+\item [(ii)] $P^2 = P(P(A)) = P\left(\frac{A +A ^T}{2}\right) = \frac{\frac{A +A ^T}{2}+\left(\frac{A +A ^T}{2}\right)^T}{2} = \frac{A + A^T + A^T (A^T)^T}{4} = \frac{2A + 2A^T}{4} = \frac{A + A^T}{2} = P$
+\item [(iii)] $P^* = P^H = P^T = \left( \frac{A + A^T}{2} \right)^T = \frac{A + A^T}{2}  = P$
+\item [(iv)]  
+\item [(v)] 
+\item [(vi)] 
+\end{itemize} 
+\end{problem}
+
+\begin{problem}{50.} 
+$$sy^2 +rx^2 = 1$$
+$$y^2 = \frac{1}{s} -  \frac{r}{s}x^2$$
+$$y^2 = \begin{pmatrix}
+         1 & x^2
+        \end{pmatrix}\begin{pmatrix}
+         \frac{1}{s} \\[2ex]
+          - \frac{r}{s}\\[2ex]
+        \end{pmatrix}$$
+If we let $b = y^2$ and $A = \begin{pmatrix} 1 & x^2 \end{pmatrix}$ and $x = \begin{pmatrix}
+         \frac{1}{s} &
+          - \frac{r}{s}
+        \end{pmatrix}^T$ then we have an equation in the form $b = Ax$. 
 \end{problem}
 
 \end{document}
