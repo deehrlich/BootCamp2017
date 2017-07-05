@@ -62,9 +62,9 @@
 \begin{problem}{3.} \hfill
 \begin{itemize}
 \item [(i)] Let $f(x) = x$ and $g(x) = x^5$. Then 
-$$\theta = \cos^{-1} \big(\frac{\langle f,g \rangle}{\| f\|\|g\|} \big )= \cos^{-1}\big( \frac{\int_0^1 x^6 dx}{ \sqrt{\int_0^1 x^2 dx}\sqrt{\int_0^1 x^{10}dx}}\big) =\cos^{-1} \big(\frac{1/7}{\sqrt{1/3}\sqrt{1/11}}\big) = 0.61$$
+$$\theta = \cos^{-1} \big(\frac{\langle f,g \rangle}{\| f\|\|g\|} \big )= \cos^{-1}\big( \frac{\int_0^1 x^6 dx}{ \sqrt{\int_0^1 x^2 dx}\sqrt{\int_0^1 x^{10}dx}}\big) =\cos^{-1} \big(\frac{1/7}{\sqrt{1/3}\sqrt{1/11}}\big) $$
 \item [(ii)] Let $f(x) = x^2$ and $g(x) = x^4$. Then 
-$$\theta = \cos^{-1}\big( \frac{\int_0^1 x^6 dx}{ \sqrt{\int_0^1 x^4 dx}\sqrt{\int_0^1 x^{8}dx}}\big) =\cos^{-1} \big(\frac{1/7}{\sqrt{1/5}\sqrt{1/9}}\big) = 0.29$$
+$$\theta = \cos^{-1}\big( \frac{\int_0^1 x^6 dx}{ \sqrt{\int_0^1 x^4 dx}\sqrt{\int_0^1 x^{8}dx}}\big) =\cos^{-1} \big(\frac{1/7}{\sqrt{1/5}\sqrt{1/9}}\big)$$
 \end{itemize}
 \end{problem}
 
@@ -197,21 +197,26 @@ Therefore $\|f + g\|_{L_2} \leq \|f\|_{L_2} + \|g\|_{L_2}$.
 \end{itemize} 
 We now show that the p-norms for $p = 1,2,\infty$ on $\F^n$ are topologically equivalent. 
 \begin{itemize}
-\item [(i)]  
-\item [(ii)] 
+\item [(i)]  The first inequality follows from $\|x\|_2 = \sqrt{\sum_{i=1}^n |x_i|^2} \leq   \sqrt{\sum_{i=1}^n |x_i|^2  + 2 \sum_{i<j}|x_i||x_j|} =\sum_i^n \sqrt{x_i^2} =  \sum_i^n |x_i| =  \|x\|_1$. For the second inequality consider a vector of $1$'s. Then by Cauchy-Schwarz: $\|x\|_1 = \sum_i^n |1x_i| \leq \sqrt{ \sum_i^n |1| \sum_i^n |x_i|} = \sqrt{n}\sqrt{ \sum_i^n |x_i|} = \sqrt{n}\|x\|_2$ so $\|x\|_1 \sim \|x\|_{2}$
+\item [(ii)] Let $\max_i |x_i| =  |x_j|$. Then $\|x\|_{\infty} = \max_i |x_i| =  |x_j| \leq \sqrt{\sum_{i=1}^n |x_i|^2} = \|x\|_2 \leq \sqrt{n |x_j|^2} = \sqrt{n} \|x\|_{\infty}$ so $\|x\|_2 \sim \|x\|_{\infty}$
 \end{itemize} 
 \end{problem}
 
-
-\begin{problem}{28.} \hfill
+ 
+\begin{problem}{28.} Applying the properties proven in problem 26 we have that:
 \begin{itemize}
-\item [(i)]  
-\item [(ii)] 
+\item [(i)]   $$\frac{1}{\sqrt{n}}\|A\|_2 =  \sup_{x\neq0}\frac{1}{\sqrt{n}} \frac{\|Ax\|_2}{\|x\|_2} \leq  \sup_{x\neq0} \frac{\|Ax\|_2}{\|x\|_1} \leq  \sup_{x\neq0} \frac{\|Ax\|_1}{\|x\|_1} = \|A\|_1  $$
+$$ \leq  \sup_{x\neq0} \sqrt{n}\frac{\|Ax\|_2}{\|x\|_2}= \sqrt{n}\|A\|_2 $$
+\item [(ii)] $$ \frac{1}{\sqrt{n}}\|A\|_\infty = \sup_{x\neq0} \frac{1}{\sqrt{n}} \frac{\|Ax\|_\infty}{\|x\|_\infty} \leq  \sup_{x\neq0}  \frac{\|Ax\|_{\infty}}{\|x\|_2} \leq \sup_{x\neq0}  \frac{\|Ax\|_2}{\|x\|_2} = \|A\|_2 $$ $$ \leq  \sup_{x\neq0} \sqrt{n}\frac{\|Ax\|_\infty}{\|x\|_\infty} = \sqrt{n}\|A\|_\infty$$
 \end{itemize} 
 \end{problem}
 
 
-\begin{problem}{29.} 
+\begin{problem}{29.} \hfill
+\begin{itemize}
+\item[(i)] We proved in problem 10 that $\|Qx\|_2 = \|x\|_2$ if $Q$ is orthonormal. Then $\|Q\|_2 = \sup_{x\neq 0} \frac{\|Qx\|_2}{\|x\|_2} = 1$.  
+\item[(ii)] The induced norm of the transformation $R_x$ is $\|R_x\|_2 = \sup_{A\neq 0} \frac{\|Ax\|_2}{\|A\|_2} \leq \sup_{A\neq 0} \frac{\|A\|_2 \|x\|_2}{\|A\|_2} = \|x\|_2$. Now let $A = I$. Then  $\|R_x\|_2 = \sup_{A\neq 0} \frac{\|Ax\|_2}{\|A\|_2} \geq \frac{\|Ix\|_2}{\|I\|} = \|x\|_2$ and hence $\|Rx\|_2 = \|x\|_2$. 
+\end{itemize}
 \end{problem}
 
 
@@ -225,15 +230,15 @@ We now show that the p-norms for $p = 1,2,\infty$ on $\F^n$ are topologically eq
 \end{problem}
 
 \begin{problem}{37.} 
-Let $q=180x^2 -168x+24$ and  let $p \in \R[x;2]$ where $p$ can be written as  $p=ax^2 +bx+c$. Then
+Let $q=180x^2 -168x+24$. Then
 \begin{equation*}
 \begin{aligned}
- \langle q,p \rangle &= \int_0^1 qpdx =\\
- &= \int_0^1 (180ax^4 - 168ax^3 + 24ax^2 + 180bx^3 -168bx^2   + 24bx + 180cx^2 - 168cx + 24c)dx \\
- &= (\frac{180}{5} - \frac{168}{4} + \frac{24}{3})a + (\frac{180}{4} - \frac{168}{3} + \frac{24}{2})b + (\frac{180}{3} - \frac{168}{2} +24)c = \\
- & =  2a + b = p'(1) = L[p]
+ \langle q,p \rangle &= \int_0^1 qpdx = \int_0^1 (180ax^4 - 168ax^3 + 24ax^2 + 180bx^3 -168bx^2   + 24bx +\\
+ & +  180cx^2 - 168cx + 24c)dx = (\frac{180}{5} - \frac{168}{4} + \frac{24}{3})a + (\frac{180}{4} - \frac{168}{3} + \frac{24}{2})b \\
+ &+ (\frac{180}{3} - \frac{168}{2} +24)c =  2a + b = p'(1) = L[p]
  \end{aligned}
  \end{equation*}
+ We find polynomial q by replacing $180, -168, 24$ with $r,s,t$ respectively and solving backwards from $\langle q,p \rangle = 2a + b$. 
 \end{problem}
 
 \begin{problem}{38.} 
@@ -246,25 +251,6 @@ Let $D: V \to V$ be the derivative operator where $V  = \F[x;2]$ is a subspace o
    0 & 0 & 0\\
   \end{array} } \right]
 \]
-We now show that D is the derivative operator. Let $p \in V$ so $p$ can be written as  $p=ax^2 +bx+c$. Then 
-\[
-   D[p](x)=
-  \left[ {\begin{array}{ccc}
-   0 & 1 & 0\\
-   0 & 0 & 2\\
-   0 & 0 & 0\\
-  \end{array} } \right]
-  \left[ {\begin{array}{c}
-   c \\
-   b \\
-   a \\
-  \end{array} } \right] = 
-  \left[ {\begin{array}{c}
-   b \\
-   2a \\
-   0 \\
-  \end{array} } \right]= 0x^3 + 2ax + b  = p'(x)
-\] 
 Furthermore, the adjoint is the Hermitian, so we can write the matrix representation of $D^*$:
 \[
    D^* =
@@ -279,10 +265,13 @@ Furthermore, the adjoint is the Hermitian, so we can write the matrix representa
 
 \begin{problem}{39.} \hfill
 \begin{itemize}
-\item [(i)]  
-\item [(ii)] 
-\item [(iii)]  
-\item [(iv)] 
+\item [(i)]  \begin{itemize}
+	\item [(1)]  $\langle v, (S+T)^* w \rangle  = \langle (S+T)v, w \rangle = \langle Sv, w \rangle + \langle Tv, w \rangle = \langle v,S^*w \rangle + \langle v,T^*w \rangle = \langle v, (S^* + T^*)w\rangle$
+	\item [(2)] $\langle v, (\alpha T) w \rangle = \alpha\langle (T^*)v, w \rangle  = \langle \bar{ \alpha}(T^*)v, w \rangle $
+\end{itemize} 
+\item [(ii)] $\langle v, S^*w \rangle  =\langle Sv, w \rangle $  so $S^{*^*} = S$.
+\item [(iii)]   $\langle v, (ST)^* w \rangle  = \langle (ST)v, w \rangle =\langle (T)v, (S^*) w \rangle = \langle v, (T^*S^*) w \rangle$
+\item [(iv)] First, $\langle T^*(T^{-1})^*v, w \rangle = \langle v, T^{-1}Tw \rangle  = \langle v , w \rangle$. Second, $\langle (T^{-1})^*T^*v, w \rangle = \langle v, TT^{-1}w \rangle  = \langle v , w \rangle$. Therefore, $T^*(T^{-1})^* =(T^{-1})^*T^* =  I$ so $(T^*)^{-1} = (T^{-1})^*$. 
 \end{itemize} 
 \end{problem}
 
@@ -291,9 +280,8 @@ Furthermore, the adjoint is the Hermitian, so we can write the matrix representa
 \item [(i)] $ \langle A^*B,C \rangle  = \langle B,AC \rangle = tr(B^HAC) = tr((A^HB)^HC) = \langle A^HB,C \rangle$ so $A^* = A^H$. 
 \item [(ii)] $\langle A_2, A_3A_1 \rangle = tr(A_2^HA_3A_1) = tr(A_1A_2^HA_3) = tr((A_2A_1^H)^HA_3) = \langle A_2 A_1^H, A_3\rangle =$ \\\\
 $=  \langle A_2 A_1^*, A_3\rangle$ where the last equality follows by part (i).
-\item [(iii)] $\langle A^HX -XA^H, C \rangle = tr((A^HX -XA^H)^HC) = tr((A^HX)^HC -(XA^H)^HC) = $\\\\
-$ =  tr(X^HAC -AX^HC) =  tr(X^HAC - X^HCA) = \langle X, AC - CA \rangle = $\\\\
-$  =  \langle (AX - XA)^H, C \rangle$
+\item [(iii)] $\langle B, T_A(C) \rangle = \langle B, AC -CA \rangle = tr(B^HAC -B^HCA) = tr(B^HAC - AB^HC) = $\\\\
+$  = tr((A^HB - BA^H)^HC) = \langle A^HB - BA^H, C \rangle = \langle T_{A^*}(B), C \rangle $
 
 \end{itemize} 
 \end{problem}
@@ -303,13 +291,15 @@ Let $A \in M_{m \times n}$, $b \in \F^m$. If the equation $Ax = b$ has a solutio
 \end{problem}
 
 \begin{problem}{45.} 
+We define $Sym_n(\R) = \{A \in M_n(\R) |A^T = A\}$ and $Skew_n(\R) = \{A \in M_n(\R) |A^T = -A\}$. Let $A \in Sym_n(\R)$ and $B \in Skew_n(\R)$. Then $\langle A, B \rangle = tr(A^TB) = tr(BA^T) = - tr(B^TA) =  - \langle B, A \rangle =  - \langle A, B \rangle $ implying that $\langle A, B \rangle = 0$. Furthermore, any matrix $A \in M_N(\R)$ can be written as the sum of a Skew and Sym matrix where $A = \frac{1}{2}(A + A^T) +  \frac{1}{2}(A - A^T)$ which shows that $Sym_n(\R)$ and $Skew_n(\R)$ are orthogonal complements and $Sym_n(\R)^\perp=Skew_n(\R)$.
 \end{problem}
 
 \begin{problem}{46.} \hfill
 \begin{itemize}
-\item [(i)]  
-\item [(ii)] 
-\item [(iii)] 
+\item [(i)]  Let $x \in N(A^HA)$. Then it is obvious that $A^H (Ax) = A^HAx = 0$ so $Ax \in N(A^H)$. By definition, $Ax \in R(A)$. 
+\item [(ii)] Let $x\in N(A)$. Then it follows that $A^H(Ax) = A^H0= 0$ so $x \in N(A^HA)$. Now let $x \in N(A^HA)$. Then by part (i) we know that $Ax \in R(A), N(A^H)$. By the fundamental subspaces theorem,$N(A^H) = R(A)^\perp$ which is orthogonal to $R(A)$. Since $Ax \in R(A) \text{ and } R(A)^\perp$ we have that $Ax = 0$ so $x \in N(A)$. Therefore $N(A) = N(A^HA)$.     
+\item [(iii)] According to the rank nullity theorem, if A is a m-by-n matrix, then $rank(A) +  \dim(N(A)) = n$. Rearranging the equation gives $rank(A) = n -  \dim(N(A)) =n -  \dim(N(A^HA)) =  rank(A^HA)$.
+\item [(iv)] Let A have linearly independent columns. Then $rank(A) = n = rank(A^HA)$ and by part (iii). Since $A^HA$ is a square n-by-n matrix of rank $n$, it is nonsingular. 
 \end{itemize} 
 \end{problem}
 
@@ -330,27 +320,71 @@ $$ rank(P) = tr(P) = tr(A(A^HA)^{-1}A^H) = tr((A^HA)^{-1}A^HA) =  tr(I_{n \times
 \item [(2)]  $P(\alpha A) = \frac{\alpha A +\alpha A ^T}{2} = \alpha \frac{A +A ^T}{2} = \alpha P(A)$
 \end{itemize} 
 \item [(ii)] $P^2 = P(P(A)) = P\left(\frac{A +A ^T}{2}\right) = \frac{\frac{A +A ^T}{2}+\left(\frac{A +A ^T}{2}\right)^T}{2} = \frac{A + A^T + A^T (A^T)^T}{4} = \frac{2A + 2A^T}{4} = \frac{A + A^T}{2} = P$
-\item [(iii)] $P^* = P^H = P^T = \left( \frac{A + A^T}{2} \right)^T = \frac{A + A^T}{2}  = P$
-\item [(iv)]  
-\item [(v)] 
-\item [(vi)] 
+\item [(iii)] $\langle P(A), B \rangle = \frac{1}{2}tr(AB + A^TB) = \frac{1}{2}tr(A^TB + A^TB^T) =\langle A, P(B) \rangle$
+\item [(iv)]  Let $A \in Skew_n(\R) = \{A \in M_n(\R) |A^T = -A\}$. Then $P(A) = \frac{1}{2}(A +A^T) =  \frac{1}{2}(A -A) = 0$ so $A \in N(P)$. 
+\item [(v)]  Let $A \in  Sym_n(\R) = \{A \in M_n(\R) |A^T = A\}$. Then $P(A) = \frac{1}{2}(A +A^T) = \frac{1}{2}(A +A) = A$ so $A \in R(P)$. 
+\item [(vi)] $\|A - P(A)\|_F = \sqrt{\langle \frac{1}{2}(A - A^T),\frac{1}{2}(A - A^T) \rangle } = \sqrt{\frac{1}{4}tr((A^T -A)(A-A^T) } =$\\
+$=  \sqrt{\frac{1}{4}tr(A^TA -A^2 +AA^T-A^TA^T) } =  \sqrt{\frac{1}{4}tr(2A^TA -A^2 +AA^T-A^2) } = $\\
+$ = \sqrt{\frac{1}{2}(tr(A^TA) - tr(A^2))}$
 \end{itemize} 
 \end{problem}
 
 \begin{problem}{50.} 
-$$sy^2 +rx^2 = 1$$
-$$y^2 = \frac{1}{s} -  \frac{r}{s}x^2$$
-$$y^2 = \begin{pmatrix}
-         1 & x^2
-        \end{pmatrix}\begin{pmatrix}
-         \frac{1}{s} \\[2ex]
-          - \frac{r}{s}\\[2ex]
-        \end{pmatrix}$$
-If we let $b = y^2$ and $A = \begin{pmatrix} 1 & x^2 \end{pmatrix}$ and $x = \begin{pmatrix}
-         \frac{1}{s} &
-          - \frac{r}{s}
-        \end{pmatrix}^T$ then we have an equation in the form $b = Ax$. 
-\end{problem}
+We can rewrite $sy^2 +rx^2 = 1$ as $b = Ax$ where 
+
+        \[
+          A=
+          \begin{bmatrix}
+            x_1^2 & y_1^2 \\
+            x_2^2 & y_2^2 \\
+            \vdots & \vdots \\
+            x_n^2 & y_n^2
+          \end{bmatrix}
+          x =
+          \begin{bmatrix}
+            r \\
+            s
+          \end{bmatrix}
+          b =  \begin{bmatrix}
+            1\\
+            \vdots\\
+            1
+          \end{bmatrix}
+           \]
+ Then the normal equations are $A^TAx = A^Tb$ where:
+ \[
+          \begin{bmatrix}
+            x_1^2 &  x_2^2  & \cdots & x_n^2 \\
+            y_1^2 &  y_2^2  & \cdots & y_n^2
+          \end{bmatrix} 
+           \begin{bmatrix}
+            x_1^2 & y_1^2 \\
+            x_2^2 & y_2^2 \\
+            \vdots & \vdots \\
+            x_n^2 & y_n^2
+          \end{bmatrix} = 
+         \begin{bmatrix}
+            \sum x_i^4 & \sum x_i^2y^2_i\\
+            \sum x_i^2y^2_i &  \sum y_i^4 \\
+             \end{bmatrix} 
+          \]
+           \[
+          \begin{bmatrix}
+            x_1^2 &  x_2^2  & \cdots & x_n^2 \\
+            y_1^2 &  y_2^2  & \cdots & y_n^2
+          \end{bmatrix} 
+          \begin{bmatrix}
+            1\\
+            \vdots\\
+            1
+          \end{bmatrix} = 
+         \begin{bmatrix}
+            \sum x_i^2\\
+           \sum y_i^2 \\
+             \end{bmatrix} 
+          \]
+
+ \end{problem}
 
 \end{document}
 
