@@ -51,24 +51,60 @@ Let $V = span(\{1,x,x^2\})$ and $D$ is the derivative operator $D: V \to V$ such
    0 & 0 & 0\\
   \end{array} } \right]
 \]
-Then $\det(D - \lambda I) = (-\lambda)^3 = 0$. Therefore the eigenvalues  are $\lambda = 0$ with multiplicity 3. 
+Then $\det(D - \lambda I) = (-\lambda)^3 = 0$. Therefore the eigenvalue is $\lambda = 0$ with algebraic multiplicity 3. $A$ has real eigenvalues if $tr(A)^2 - 4\det(b^2)$. 
  \end{problem}
 
-\begin{problem}{4.} \hfill
+\begin{problem}{4.} 
+Let   \[ A=
+  \left[ {\begin{array}{ccc}
+   a & b\\
+   c & d\\
+  \end{array} } \right]
+\]
+
 \begin{itemize}
-\item [(i)] 
+\item [(i)] If $A = A^H$ then 
+\[ A=
+  \left[ {\begin{array}{ccc}
+   a & b\\
+   b & d\\
+  \end{array} } \right]
+\]
+Then $tr(A) = a + d$ and $\det(A) = ad-b^2$. 
 \item [(ii)]
 \end{itemize}
 \end{problem}
 
-\begin{problem}{6.} \hfill
-\begin{itemize}
-\item [(i)] 
-\item [(ii)]
-\end{itemize}
+\begin{problem}{6.} Let the matrix $A$ be upper triangular. Then, since upper triangular matrices are closed under addition and subtraction, $A-\lambda I$ is also an upper triangular matrix with diagonal entires $a_{ii} - \lambda$. The determinant of an upper triangular matrix is the product of the diagonal entires so $p_A(\lambda) = \det( A-\lambda I) = \Pi_{i=1}^n  (a_{ii} - \lambda) = 0$. Therefore the eigenvalues of A are the values of $\lambda$ such that $a_{ii} - \lambda = 0 \forall i$ or equivalently  $a_{ii} = \lambda  \forall i$ where the $a_{ii}$ are the diagonal entires of A. 
 \end{problem}
 
-\begin{problem}{8.}
+\begin{problem}{8.} Let $S = \{\sin(x), \cos(x), \sin(2x), \cos(2x) \}$ and $V = span(\{S\})$. 
+\begin{itemize}
+\item [(i)] $S$ is a basis for $V$ if $S$ spans V and is linearly independent. The first part follows from our assumptions. We now show the second. 
+\[0 =
+  \left[ {\begin{array}{cccc}
+   1 & 0 & 0 & 0\\
+   0 & 1 & 0 & 0\\
+   0 & 0 & 1 & 0\\
+   0 & 0 & 0 & 1\\
+  \end{array} } \right]\begin{bmatrix}
+   \sin(x) \\
+   \cos(x) \\
+   \sin(2x) \\
+   \cos(2x)\\
+  \end{bmatrix} 
+\]
+Since the $\det(I_{4 \times 4}) = 1 \neq 0$ the set $S$ is linearly independent. 
+\item [(ii)] The derivatives of the basis are $\{\cos(x), -\sin(x), 2\cos(2x), -2\sin(2x)\}$ respectively. Then \[D=
+  \left[ {\begin{array}{cccc}
+   0 & 1 & 0 & 0\\
+   -1 & 0 & 0 & 0\\
+   0 & 0 & 0 & 2\\
+   0 & 0 & -2 & 0\\
+  \end{array} } \right]
+\]
+\item [(iii)]
+\end{itemize}
 \end{problem}
 
 \begin{problem}{13.} 
