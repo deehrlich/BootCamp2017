@@ -51,7 +51,7 @@ Let $V = span(\{1,x,x^2\})$ and $D$ is the derivative operator $D: V \to V$ such
    0 & 0 & 0\\
   \end{array} } \right]
 \]
-Then $\det(D - \lambda I) = (-\lambda)^3 = 0$. Therefore the eigenvalue is $\lambda = 0$ with algebraic multiplicity 3. $A$ has real eigenvalues if $tr(A)^2 - 4\det(b^2)$. 
+Then $\det(D - \lambda I) = (-\lambda)^3 = 0$. Therefore the eigenvalue is $\lambda = 0$ with algebraic multiplicity 3 and geometric multiplicity of 0 since all the eigenvectors are in the form $(a, 0, 0)$.
  \end{problem}
 
 \begin{problem}{4.} 
@@ -70,8 +70,15 @@ Let   \[ A=
    b & d\\
   \end{array} } \right]
 \]
-Then $tr(A) = a + d$ and $\det(A) = ad-b^2$. 
-\item [(ii)]
+Then $tr(A) = a + d$ and $\det(A) = ad-b^2$. $A$ has real eigenvalues if $tr(A)^2 - 4\det(A) \geq 0$ where $tr(A)^2 - 4\det(A)$ is the term under the square root  in the quadratic formula. We have that $tr(A)^2 - 4\det(A) = a^2 + d^2 + 2ad - 4ad  + 4b^2 = (a -d)^2 + 4b^2  \geq 0$ so $A$ has real eigenvalues.
+\item [(ii)] If $A = -A^H$ then 
+\[ A=
+  \left[ {\begin{array}{ccc}
+   0 & b\\
+   -b & 0\\
+  \end{array} } \right]
+\]
+Then $tr(A) = 0$ and $\det(A) = b^2$. We have that $tr(A)^2 - 4\det(A) = -4b^2  < 0$ so $A$ has imaginary eigenvalues.
 \end{itemize}
 \end{problem}
 
@@ -94,7 +101,7 @@ Then $tr(A) = a + d$ and $\det(A) = ad-b^2$.
    \cos(2x)\\
   \end{bmatrix} 
 \]
-Since the $\det(I_{4 \times 4}) = 1 \neq 0$ the set $S$ is linearly independent. 
+Since the $\det(I_{4 \times 4}) = 1 \neq 0$ the set $S$ is linearly independent. We also showed in problem 3.8 that the set is orthonormal and therefore linearly independent. 
 \item [(ii)] The derivatives of the basis are $\{\cos(x), -\sin(x), 2\cos(2x), -2\sin(2x)\}$ respectively. Then \[D=
   \left[ {\begin{array}{cccc}
    0 & 1 & 0 & 0\\
