@@ -87,21 +87,7 @@ Then $tr(A) = 0$ and $\det(A) = b^2$. We have that $tr(A)^2 - 4\det(A) = -4b^2  
 
 \begin{problem}{8.} Let $S = \{\sin(x), \cos(x), \sin(2x), \cos(2x) \}$ and $V = span(\{S\})$. 
 \begin{itemize}
-\item [(i)] $S$ is a basis for $V$ if $S$ spans V and is linearly independent. The first part follows from our assumptions. We now show the second. 
-\[0 =
-  \left[ {\begin{array}{cccc}
-   1 & 0 & 0 & 0\\
-   0 & 1 & 0 & 0\\
-   0 & 0 & 1 & 0\\
-   0 & 0 & 0 & 1\\
-  \end{array} } \right]\begin{bmatrix}
-   \sin(x) \\
-   \cos(x) \\
-   \sin(2x) \\
-   \cos(2x)\\
-  \end{bmatrix} 
-\]
-Since the $\det(I_{4 \times 4}) = 1 \neq 0$ the set $S$ is linearly independent. We also showed in problem 3.8 that the set is orthonormal and therefore linearly independent. 
+\item [(i)] $S$ is a basis for $V$ if $S$ spans V and is linearly independent. The first part follows from our assumptions. We now show the second. We proved in problem 3.8 that the set $S$ is orthonormal which implies that they are linearly independent and are hence a basis for $V$. 
 \item [(ii)] The derivatives of the basis are $\{\cos(x), -\sin(x), 2\cos(2x), -2\sin(2x)\}$ respectively. Then \[D=
   \left[ {\begin{array}{cccc}
    0 & 1 & 0 & 0\\
