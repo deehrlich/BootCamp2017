@@ -200,8 +200,7 @@ Let $A$ be positive definite and let $x \neq 0$. Then  $\langle x, Ax \rangle = 
 
  
 \begin{problem}{28.} 
-Let $A,B$ be positive semi-definite. If $A = P^{-1}DP$ then $tr(AB)  = tr(P^{-1}DPB) = tr(DPBP^{-1})$ so WLOG we can write $A$ as  $A = diag(\lambda_1,\cdots, \lambda_n)$ and let $\{b_{11}, \cdots ,b_{nn}\}$ be the diagonal entires of $B$. Then $tr(AB) = \lambda_1b_{11} + \cdots + \lambda_nb_{nn}
-\leq (\lambda_1 + \cdots + \lambda_n)(b_{11} + \cdots +b_{nn})= tr(A)tr(B)$. Since both A and B are positive semi-definite, $tr(AB) = \lambda_1b_{11} + \cdots + \lambda_nb_{nn} > 0$. 
+Let $A,B$ be positive semi-definite, then the diagonal has all non-negative elements so the sum of the diagonal elements is non-negative. Therefore $ 0 \leq tr(A)$ and therefore $ 0 \leq tr(AB)$. Then using the Frobenius norm and Cauchy-Schwarz, $\|AB\| \leq \|A\| \|B\|$ and $\sqrt{\|AB\|} \leq \sqrt{\|A\|} \sqrt{\|B\|}$ and finally $tr(AB) \leq tr(A) tr(B)$. 
 \end{problem}
 
 
@@ -211,12 +210,9 @@ Let $A,B$ be positive semi-definite. If $A = P^{-1}DP$ then $tr(AB)  = tr(P^{-1}
 \begin{equation*}
 \begin{aligned}
 \|A\|_2 &= \sup_{x\neq 0} \frac{\|Ax\|_2}{\|x\|_2} = \sup_{x\neq 0} \frac{\|U\Sigma V^Hx\|_2}{\|x\|_2} = \sup_{x\neq 0} \frac{\|\Sigma V^Hx\|_2}{\|x\|_2} = \\
-& = \sup_{y\neq 0} \frac{\|\Sigma y\|_2}{\|Vy\|_2} = \sup_{y\neq 0} \frac{\|\Sigma y\|_2}{\|y\|_2} =  \sup_{\|y\|= 1} \|\Sigma y\|_2 = 
-\sup_{\|y\|=1} \sqrt{\sum_{i=1}^n |\sigma_i y_i|^2}\\
- &= \sup_{\|y\|=1} \sqrt{\sum_{i=1}^n \sigma_i^2| y_i|^2}
+& = \sup_{y\neq 0} \frac{\|\Sigma y\|_2}{\|Vy\|_2} = \sup_{y\neq 0} \frac{\|\Sigma y\|_2}{\|y\|_2} =  \sup_{\|y\|= 1} \|\Sigma y\|_2 = \sigma_1
 \end{aligned}
-\end{equation*}
-Then $\sqrt{\sum_{i=1}^n \sigma_i^2| y_i|^2} \leq \sigma_1 \sqrt{\sum_{i=1}^n |y_i|^2}$ so $\| A \|_2 \leq \sigma_1$.  Now let $y = (1,0, \cdots,0)$. Then $ \|A\|_2 =  \sup_{\|y\|=1} \sqrt{\sum_{i=1}^n \sigma_i^2| y_i|^2}\geq \sqrt{\sum_{i=1}^n \sigma_i^2| y_i|^2} = \sigma_1$. Then $\|A\|_2 = \sigma_1$. 
+\end{equation*} 
 \item [(ii)] Let $A = U\Sigma V^H$ and $\sigma_n$ be the smallest singular value of $A$. Then $A^{-1} = V\Sigma^{-1} U^H$. The diagonal elements of $\Sigma^{-1}$ are $\frac{1}{\sigma_1}, \cdots, \frac{1}{\sigma_n}$. Since $\sigma_n$ is the smallest singular value of $A$, $\frac{1}{\sigma_n}$ is the largest singular value of $A^{-1}$ and by part (i) of this problem $\|A^{-1}\|_2 = \frac{1}{\sigma_n}$
 \item [(iii)] Let $A = U\Sigma V^H$. Then $A^T = V\Sigma^T U^T$ and $A^H = V\Sigma^H U^H$. Since the singular values of $A$ are all positive real numbers, and $\Sigma$ is a diagonal matrix composed of the singular values, it is equal to both its transpose and its Hermitian. Therefore by part (i) of this problem $\|A\|_2^2 = |A^T\|_2^2 = |A^H\|_2^2 = \sigma_1^2$.  Now consider $A^HA = V\Sigma^H U^HU\Sigma V^H = V\Sigma^H\Sigma V^H = V\Sigma^2V^H$. Diagonal matrices are closed under multiplication so $\Sigma^2$ is a diagonal matrix with $\sigma_i^2$ on the diagonal. Then by part (i) of this problem $\|A^HA\|_2 = \sigma_1^2$. 
 \item [(iv)] $\|UAV\|^2_2 = \|(UAV)^HUAV\|_2 = \|V^HA^HAV\|_2 =  \|A^HAVV^H\|_2 = \|A^HA\|_2 = \|A\|^2_2$ where the first and last equality follow from parti (iii) and the equalities in the middle follow from the properties of norm. 
@@ -253,8 +249,8 @@ Let $A = \begin{bmatrix}
 V_1\Sigma_1^{-1}\Sigma_1\Sigma_1^{-1}U^H_1 = V_1\Sigma_1^{-1}U^H_1 = A^{\dagger}$
 \item [(iii)] $(AA^{\dagger})^H = (U_1\Sigma_1V_1^HV_1\Sigma_1^{-1}U^H_1)^{H} = U_1\Sigma_1V_1^HV_1\Sigma_1^{-1}U^H_1 = AA^{\dagger}$
 \item [(iv)] $(A^{\dagger}A)^H = (V_1\Sigma_1^{-1}U^H_1U_1\Sigma_1V_1^H)^H = V_1\Sigma_1^{-1}U^H_1U_1\Sigma_1V_1^H = A^{\dagger}A$. 
-\item [(v)] Let $P =AA^{\dagger}$. Then, $P^2 = (AA^{\dagger})^2 = AA^{\dagger}AA^{\dagger} = AA^{\dagger} = P$. Furthermore, $AA^{\dagger}x = A(A^{\dagger}x) \in R(A)$ so $P$ is a projection onto $R(A)$. Lastly, $\langle Ax, x- AA^{\dagger}x\rangle = 0$ so $P$ is an orthogonal projection. 
-\item [(vi)] Let $P =A^{\dagger}A$. Then, $P^2 = (A^{\dagger}A)^2 = A^{\dagger}AA^{\dagger}A = A^{\dagger}A = P$. Furthermore, $A^{\dagger}Ax = A^{\dagger}(Ax) \in R(A^H)$ so $P$ is a projection onto $R(A^H)$. Lastly, $\langle A^Hx, x- A^{\dagger}Ax\rangle  = 0$ so $P$ is an orthogonal projection. 
+\item [(v)] Let $P =AA^{\dagger}$. Then, $P^2 = (AA^{\dagger})^2 = AA^{\dagger}AA^{\dagger} = AA^{\dagger} = P$. Furthermore, $AA^{\dagger}x = A(A^{\dagger}x) \in R(A)$ so $P$ is a projection onto $R(A)$. Lastly, $(AA^{\dagger})^H = AA^{\dagger}$ so $P$ is an orthogonal projection. 
+\item [(vi)] Let $P =A^{\dagger}A$. Then, $P^2 = (A^{\dagger}A)^2 = A^{\dagger}AA^{\dagger}A = A^{\dagger}A = P$. Furthermore, $A^{\dagger}Ax = A^{\dagger}(Ax) \in R(A^H)$ so $P$ is a projection onto $R(A^H)$. Lastly, $(A^{\dagger}A)^H = A^{\dagger}A$ so $P$ is an orthogonal projection. 
 \end{itemize}
 \end{problem}
 
