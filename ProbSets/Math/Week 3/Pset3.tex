@@ -37,7 +37,7 @@
 
 \title{Homework}
 \lhead{Math OSM Lab}
-\chead{Homework 2 - 7/3/17}
+\chead{Homework 3 - 7/10/17}
 \rhead{Dan Ehrlich}
  
 \begin{document}
@@ -96,53 +96,165 @@ Then $tr(A) = 0$ and $\det(A) = b^2$. We have that $tr(A)^2 - 4\det(A) = -4b^2  
    0 & 0 & -2 & 0\\
   \end{array} } \right]
 \]
-\item [(iii)]
+\item [(iii)] The two complementary D-invarient subspaces of V are $\{\sin(x),\cos(x)\}$ and $\{\sin(2x),\cos(2x)\}$. 
 \end{itemize}
 \end{problem}
 
 \begin{problem}{13.} 
+To find the diagonalization of $A$, we compute its eigenvalues using the characteristic polynomial which is $p(\lambda) = \lambda^2-1.4\lambda+0.4 = (\lambda-1)(\lambda-0.4) = 0$ so $\lambda=1,0.4$. The associated eigenvectors are respectively 
+\[
+\begin{bmatrix}
+        2 \\
+        1
+      \end{bmatrix} ,
+   \begin{bmatrix}
+        -1 \\
+         1
+      \end{bmatrix}   
+ \] We therefore have that \[
+      P =
+      \begin{bmatrix}
+        2 & -1 \\
+        1 & 1
+      \end{bmatrix}
+\]
+and \[
+D =
+      \begin{bmatrix}
+        1 & 0 \\
+        0 & 0.4
+        \end{bmatrix}
+ \]
+ where $D = P^{-1}AP $. 
 \end{problem}
 
 \begin{problem}{15.} 
+Let $A$ be a semisimple matrix and therefore diagonalizable where $A = PDP^{-1}$. Then $
+f(A)  = f(PDP^{-1})=a_0I + a_1PDP^{-1}+\cdots+a_nPD^nP^{-1} = P(a_0I+a_1D+\cdots+a_nD^n)P^{-1} =Pf(D)P^{-1}$.
+Then the diagonal elements of $f(D)$  are equal to $f(\lambda_i)$, and since $f(D)$ is the diagonal matrix that results from diagonalizing $f(A)$,  $f(\lambda_i)$ are the eigenvalues of $f(A)$.
 \end{problem}
 
-\begin{problem}{16.} 
+\begin{problem}{16.} \hfill
+\begin{itemize}
+\item [(i)] We have that $$B = \lim_{n\to\infty}A^n = \lim_{n\to\infty}PD^nP^{-1} = \begin{bmatrix}
+        2 & -1 \\
+        1 & 1
+      \end{bmatrix}\begin{bmatrix}
+        1 & 0 \\
+        0 & 0
+        \end{bmatrix}\
+        \begin{bmatrix}
+        1/3 & 1/3 \\
+        -1/3 & 2/3
+      \end{bmatrix} = 
+      \begin{bmatrix}
+        2/3 & 2/3 \\
+        1/3 & 1/3
+      \end{bmatrix}
+$$
+Similarly, 
+$$A^k = PD^kP^{-1} = \begin{bmatrix}
+        \frac{2+.4^k}{3} & \frac{2-2(.4)^k}{3} \\
+        \frac{1-.4^k}{3} &  \frac{1+2(.4)^k}{3}
+      \end{bmatrix}$$
+and therefore, 
+$$\|A^k - B \|_1 = \| \begin{bmatrix}
+        \frac{.4^k}{3} & -\frac{2(.4)^k}{3} \\
+        -\frac{.4^k}{3} &  \frac{2(.4)^k}{3}
+      \end{bmatrix} \|  = \frac{2}{3}(.4)^k $$
+So if $\frac{4}{3}(.4)^k < \epsilon$ then $k > \frac{\ln(\frac{3}{4}\epsilon)}{\ln(.4)}$ and $\exists B$ such that $B = \lim_{n\to\infty}A^n$ with respect to the 1-norm. 
+\item [(ii)] With respect to the $\infty$-norm,  
+$$\|A^k - B \|_\infty =(.4)^k$$
+Then if $(.4)^k < \epsilon$ then $k > \frac{\ln(\epsilon)}{\ln(.4)}$. 
+With respect to the Frobenious norm, 
+$$\|A^k - B \|_F =\sqrt{\frac{10}{9}}(.4)^k$$
+Then if $\sqrt{\frac{10}{9}}(.4)^k< \epsilon$ then $k > \frac{\ln(\epsilon/ \sqrt{\frac{10}{9}})}{\ln(.4)}$. 
+The answer of B therefore does not depend on choice of norm. 
+\item [(iii)] By theorem 4.3.12, we have that since A is semi-simple, that the eigenvalues of $f(A) = 3I + 5A+A^3$ are the values $f(\lambda_i)$ and therefore the eigenvalues of $f(A)$ are $f(0.4) = 3+ 5*0.4 + 0.4^3 = 5.064$ and $f(1) = 3+ 5 +1 = 9$. 
+\end{itemize}
 \end{problem}
 
 \begin{problem}{18.} 
+Let $\lambda$ be an eigenvalue of $A$. Then it is also an eigenvalue of $A^T$ because $A$ and $A^T$ have the same characteristic polynomial. Then $\exists x$ such that $A^Tx = \lambda x$ implying that  $(A^Tx)^T = (\lambda x)^T$ and therefore $x^T = \lambda x^T$. 
 \end{problem}
 
 \begin{problem}{20.} 
+Let $A$ be Hermitian and orthonormally similar to $B$. Then $B = PAP^H = PA^HP^H = (PAP^H)^H = B^H$ so $B$ is also Hermitian. 
 \end{problem}
 
 \begin{problem}{24.} 
+The denominator of the Rayleigh quotient is always real, so whether $\rho(x)$ is real or imaginary is determined solely by the numerator. 
+Let $A$ be Hermitian. Then $\langle x, Ax \rangle = x^HAx = x^HA^Hx = \langle Ax, x \rangle = \overline{ \langle x, Ax \rangle}$. Since $\langle x, Ax \rangle = \overline{ \langle x, Ax \rangle}$ the numerator is real and the Rayleigh quotient takes on real values. Now let $A$ be Skew-Hermitian. Then $\langle x, Ax \rangle = x^HAx = -x^HA^Hx = - \langle Ax, x \rangle =  - \overline{ \langle x, Ax \rangle}$. Since $\langle x, Ax \rangle = - \overline{ \langle x, Ax \rangle}$ the numerator is imaginary and the Rayleigh quotient takes on imaginary values.
 \end{problem}
 
-\begin{problem}{25.}
+\begin{problem}{25.}\hfill
+\begin{itemize}
+\item [(i)] If $A \in M_n(\mathbb{C})$ is normal, then it has orthonormal eigenvectors $[x_1,\cdots,x_n]$. Note that $\langle x_j, x_j \rangle =x_j^Hx_j = 1$ and $\langle x_i, x_j \rangle = x_i^Hx_j = 0$ for $i\neq j$. Then $(x_1x_1^H + \cdots + x_nx_n^H)x_j = x_jx_j^Hx_j = I x_j$. Then $I = x_1x_1^H + \cdots + x_nx_n^H$. 
+\item [(ii)] Consider $(\lambda_1x_1x_1^H + \cdots + \lambda_nx_nx_n^H)x_j = \lambda x_j x_j^H x_j  = \lambda x_j = Ax_j$. Then $A = \lambda_1x_1x_1^H + \cdots + \lambda_nx_nx_n^H$. 
+\end{itemize}
 \end{problem}
 
 \begin{problem}{27.} 
+Let $A$ be positive definite and let $x \neq 0$. Then  $\langle x, Ax \rangle = x^HAx > 0$. Let $x = e_i$ where $e_i$ is vector $i$ of the standard basis. Then $e_i^HAe_i > 0$ is entry $(i,i)$ on the diagonal of $A$ and is real and positive. 
 \end{problem}
 
  
 \begin{problem}{28.} 
+Let $A,B$ be positive semi-definite. If $A = P^{-1}DP$ then $tr(AB)  = tr(P^{-1}DPB) = tr(DPBP^{-1})$ so WLOG we can write $A$ as  $A = diag(\lambda_1,\cdots, \lambda_n)$ and let $\{b_{11}, \cdots ,b_{nn}\}$ be the diagonal entires of $B$. Then $tr(AB) = \lambda_1b_{11} + \cdots + \lambda_nb_{nn}\leq (\lambda_1 + \cdots + \lambda_n)(b_{11} + \cdots +b_{nn})= tr(A)tr(B)$. Since both A and B are positive semi-definite, $tr(AB) = \lambda_1b_{11} + \cdots + \lambda_nb_{nn} > 0$. 
 \end{problem}
 
 
-\begin{problem}{31.} 
+\begin{problem}{31.} \hfill
+\begin{itemize}
+\item [(i)] Let $A = U\Sigma V^H$, $y = V^Hx$, and $\sigma_1$ be the largest singular value of $A$. Then 
+\begin{equation*}
+\begin{aligned}
+\|A\|_2 &= \sup_{x\neq 0} \frac{\|Ax\|_2}{\|x\|_2} = \sup_{x\neq 0} \frac{\|U\Sigma V^Hx\|_2}{\|x\|_2} = \sup_{x\neq 0} \frac{\|\Sigma V^Hx\|_2}{\|x\|_2} = \\
+& = \sup_{y\neq 0} \frac{\|\Sigma y\|_2}{\|Vy\|_2} = \sup_{y\neq 0} \frac{\|\Sigma y\|_2}{\|y\|_2} =  \sup_{\|y\|= 1} \|\Sigma y\|_2 = 
+\sup_{\|y\|=1} \sqrt{\sum_{i=1}^n |\sigma_i y_i|^2}\\
+ &= \sup_{\|y\|=1} \sqrt{\sum_{i=1}^n \sigma_i^2| y_i|^2}
+\end{aligned}
+\end{equation*}
+Then $\sqrt{\sum_{i=1}^n \sigma_i^2| y_i|^2} \leq \sigma_1 \sqrt{\sum_{i=1}^n |y_i|^2}$ so $\| A \|_2 \leq \sigma_1$.  Now let $y = (1,0, \cdots,0)$. Then $ \|A\|_2 =  \sup_{\|y\|=1} \sqrt{\sum_{i=1}^n \sigma_i^2| y_i|^2}\geq \sqrt{\sum_{i=1}^n \sigma_i^2| y_i|^2} = \sigma_1$. Then $\|A\|_2 = \sigma_1$. 
+\item [(ii)] Let $A = U\Sigma V^H$ and $\sigma_n$ be the smallest singular value of $A$. Then $A^{-1} = V\Sigma^{-1} U^H$. The diagonal elements of $\Sigma^{-1}$ are $\frac{1}{\sigma_1}, \cdots, \frac{1}{\sigma_n}$. Since $\sigma_n$ is the smallest singular value of $A$, $\frac{1}{\sigma_n}$ is the largest singular value of $A^{-1}$ and by part (i) of this problem $\|A^{-1}\|_2 = \frac{1}{\sigma_n}$
+\item [(iii)] Let $A = U\Sigma V^H$. Then $A^T = V\Sigma^T U^T$ and $A^H = V\Sigma^H U^H$. Since the singular values of $A$ are all positive real numbers, and $\Sigma$ is a diagonal matrix composed of the singular values, it is equal to both its transpose and its Hermitian. Therefore by part (i) of this problem $\|A\|_2^2 = |A^T\|_2^2 = |A^H\|_2^2 = \sigma_1^2$.  Now consider $A^HA = V\Sigma^H U^HU\Sigma V^H = V\Sigma^H\Sigma V^H = V\Sigma^2V^H$. Diagonal matrices are closed under multiplication so $\Sigma^2$ is a diagonal matrix with $\sigma_i^2$ on the diagonal. Then by part (i) of this problem $\|A^HA\|_2 = \sigma_1^2$. 
+\item [(iv)] $\|UAV\|^2_2 = \|(UAV)^HUAV\|_2 = \|V^HA^HAV\|_2 =  \|A^HAVV^H\|_2 = \|A^HA\|_2 = \|A\|^2_2$ where the first and last equality follow from parti (iii) and the equalities in the middle follow from the properties of norm. 
+\end{itemize}
 \end{problem}
 
 
-\begin{problem}{32.}
+\begin{problem}{32.}\hfill
+\begin{itemize}
+\item [(i)] $\| UAV\|_F = \sqrt{tr(V^HA^HU^HUAV)} = \sqrt{tr(V^HA^HAV)} =  \sqrt{tr(A^HAVV^H)}  = \sqrt{tr(A^HA)} = \|A\|_F $ 
+\item [(ii)] Let $A = U\Sigma V^H$. Then $U \in M_m(\F)$ and $V^H \in M_n(\F)$. Then by the part (i) of this problem, $\|A\|_F = \| U\Sigma V^H\|_F = \sqrt{tr(\Sigma^H\Sigma)}  = \sqrt{\sigma_1^2 + \sigma_2^2 + \cdots + \sigma_r^2}$
+\end{itemize}
 \end{problem}
 
 \begin{problem}{33.} 
+From problem 31 part (i), $\|A\|_2 = \sigma_1$ where $\sigma_1$ is the largest singular value of $A$. Then 
+$$\sup_{\|x\| = 1, \|y\| = 1} |y^HAx| \leq \sup_{\|x\| = 1, \|y\| = 1} \|y\|_2 \| \Sigma x\||_2  = \sup_{\|x\| = 1}\| \Sigma x\||_2 \leq \sigma_1$$
+where the last inequality follows from problem 31 part (i). 
+However, if we define $x$ and $y$ as in problem 31 part (i), then $\sup_{\|x\| = 1, \|y\| = 1} |y^HAx| \geq |y^HAx| = \sigma_1$. Therefore  $\sup_{\|x\| = 1, \|y\| = 1} |y^HAx| = \sigma_1 = \|A\|_2$. 
 \end{problem}
 
 \begin{problem}{36.} 
+Let $A = \begin{bmatrix}
+         1 & 4 \\
+         5 & 2
+        \end{bmatrix}$. Then $\det(A) = -18 \neq 0$ and $\lambda = -3, 6$ and $\sigma =  6.1088,  2.9466$. More generally, if a matrix is positive semi-definite, then the eigenvalues are equal to singular values. Maxing an entry in the matrix negative or change an entry so that the matrix is no longer symmetric, would result in the eigenvalues and singular values that are not equal to one another. 
+        
 \end{problem}
 
-\begin{problem}{38.} 
+\begin{problem}{38.} Let $A = U_1\Sigma_1V_1^H$. Then $A^{\dagger} = V_1\Sigma_1^{-1}U^H_1$. 
+\begin{itemize}
+\item [(i)] $AA^{\dagger}A = U_1\Sigma_1V_1^{H}V_1\Sigma_1^{-1}U^H_1U_1\Sigma_1V_1^{H} = U_1\Sigma_1\Sigma_1^{-1}\Sigma_1V_1^{H}  = U_1\Sigma_1V_1^{H} = A$
+\item [(ii)] $A^{\dagger}AA^{\dagger} = V_1\Sigma_1^{-1}U^H_1U_1\Sigma_1V_1^{H}V_1\Sigma_1^{-1}U^H_1 = 
+V_1\Sigma_1^{-1}\Sigma_1\Sigma_1^{-1}U^H_1 = V_1\Sigma_1^{-1}U^H_1 = A^{\dagger}$
+\item [(iii)] $(AA^{\dagger})^H = (U_1\Sigma_1V_1^HV_1\Sigma_1^{-1}U^H_1)^{H} = U_1\Sigma_1V_1^HV_1\Sigma_1^{-1}U^H_1 = AA^{\dagger}$
+\item [(iv)] $(A^{\dagger}A)^H = (V_1\Sigma_1^{-1}U^H_1U_1\Sigma_1V_1^H)^H = V_1\Sigma_1^{-1}U^H_1U_1\Sigma_1V_1^H = A^{\dagger}A$. 
+\item [(v)] Let $P =AA^{\dagger}$. Then, $P^2 = (AA^{\dagger})^2 = AA^{\dagger}AA^{\dagger} = AA^{\dagger} = P$. Furthermore, $AA^{\dagger}x = A(A^{\dagger}x) \in R(A)$ so $P$ is a projection onto $R(A)$. Lastly, $\langle Ax, x- AA^{\dagger}x\rangle = 0$ so $P$ is an orthogonal projection. 
+\item [(vi)] Let $P =A^{\dagger}A$. Then, $P^2 = (A^{\dagger}A)^2 = A^{\dagger}AA^{\dagger}A = A^{\dagger}A = P$. Furthermore, $A^{\dagger}Ax = A^{\dagger}(Ax) \in R(A^H)$ so $P$ is a projection onto $R(A^H)$. Lastly, $\langle A^Hx, x- A^{\dagger}Ax\rangle  = 0$ so $P$ is an orthogonal projection. 
+\end{itemize}
 \end{problem}
 
 \end{document}
