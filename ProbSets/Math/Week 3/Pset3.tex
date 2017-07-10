@@ -175,7 +175,7 @@ The answer of B therefore does not depend on choice of norm.
 \end{problem}
 
 \begin{problem}{18.} 
-Let $\lambda$ be an eigenvalue of $A$. Then it is also an eigenvalue of $A^T$ because $A$ and $A^T$ have the same characteristic polynomial. Then $\exists x$ such that $A^Tx = \lambda x$ implying that  $(A^Tx)^T = (\lambda x)^T$ and therefore $x^T = \lambda x^T$. 
+Let $\lambda$ be an eigenvalue of $A$. Then it is also an eigenvalue of $A^T$ because $A$ and $A^T$ have the same characteristic polynomial. Then $\exists x$ such that $A^Tx = \lambda x$ implying that  $(A^Tx)^T = (\lambda x)^T$ and therefore $x^T A= \lambda x^T$. 
 \end{problem}
 
 \begin{problem}{20.} 
@@ -200,7 +200,8 @@ Let $A$ be positive definite and let $x \neq 0$. Then  $\langle x, Ax \rangle = 
 
  
 \begin{problem}{28.} 
-Let $A,B$ be positive semi-definite. If $A = P^{-1}DP$ then $tr(AB)  = tr(P^{-1}DPB) = tr(DPBP^{-1})$ so WLOG we can write $A$ as  $A = diag(\lambda_1,\cdots, \lambda_n)$ and let $\{b_{11}, \cdots ,b_{nn}\}$ be the diagonal entires of $B$. Then $tr(AB) = \lambda_1b_{11} + \cdots + \lambda_nb_{nn}\leq (\lambda_1 + \cdots + \lambda_n)(b_{11} + \cdots +b_{nn})= tr(A)tr(B)$. Since both A and B are positive semi-definite, $tr(AB) = \lambda_1b_{11} + \cdots + \lambda_nb_{nn} > 0$. 
+Let $A,B$ be positive semi-definite. If $A = P^{-1}DP$ then $tr(AB)  = tr(P^{-1}DPB) = tr(DPBP^{-1})$ so WLOG we can write $A$ as  $A = diag(\lambda_1,\cdots, \lambda_n)$ and let $\{b_{11}, \cdots ,b_{nn}\}$ be the diagonal entires of $B$. Then $tr(AB) = \lambda_1b_{11} + \cdots + \lambda_nb_{nn}
+\leq (\lambda_1 + \cdots + \lambda_n)(b_{11} + \cdots +b_{nn})= tr(A)tr(B)$. Since both A and B are positive semi-definite, $tr(AB) = \lambda_1b_{11} + \cdots + \lambda_nb_{nn} > 0$. 
 \end{problem}
 
 
