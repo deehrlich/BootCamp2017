@@ -214,7 +214,7 @@ Let $A,B$ be positive semi-definite, then the diagonal has all non-negative elem
 \end{aligned}
 \end{equation*} 
 \item [(ii)] Let $A = U\Sigma V^H$ and $\sigma_n$ be the smallest singular value of $A$. Then $A^{-1} = V\Sigma^{-1} U^H$. The diagonal elements of $\Sigma^{-1}$ are $\frac{1}{\sigma_1}, \cdots, \frac{1}{\sigma_n}$. Since $\sigma_n$ is the smallest singular value of $A$, $\frac{1}{\sigma_n}$ is the largest singular value of $A^{-1}$ and by part (i) of this problem $\|A^{-1}\|_2 = \frac{1}{\sigma_n}$
-\item [(iii)] Let $A = U\Sigma V^H$. Then $A^T = V\Sigma^T U^T$ and $A^H = V\Sigma^H U^H$. Since the singular values of $A$ are all positive real numbers, and $\Sigma$ is a diagonal matrix composed of the singular values, it is equal to both its transpose and its Hermitian. Therefore by part (i) of this problem $\|A\|_2^2 = |A^T\|_2^2 = |A^H\|_2^2 = \sigma_1^2$.  Now consider $A^HA = V\Sigma^H U^HU\Sigma V^H = V\Sigma^H\Sigma V^H = V\Sigma^2V^H$. Diagonal matrices are closed under multiplication so $\Sigma^2$ is a diagonal matrix with $\sigma_i^2$ on the diagonal. Then by part (i) of this problem $\|A^HA\|_2 = \sigma_1^2$. 
+\item [(iii)] Let $A = U\Sigma V^H$. Then $A^T = V\Sigma^T U^T$ and $A^H = V\Sigma^H U^H$. Since the singular values of $A$ are all positive real numbers, and $\Sigma$ is a diagonal matrix composed of the singular values, it is equal to both its transpose and its Hermitian. Therefore by part (i) of this problem $\|A\|_2^2 = \|A^T\|_2^2 = \|A^H\|_2^2 = \sigma_1^2$.  Now consider $A^HA = V\Sigma^H U^HU\Sigma V^H = V\Sigma^H\Sigma V^H = V\Sigma^2V^H$. Diagonal matrices are closed under multiplication so $\Sigma^2$ is a diagonal matrix with $\sigma_i^2$ on the diagonal. Then by part (i) of this problem $\|A^HA\|_2 = \sigma_1^2$. 
 \item [(iv)] $\|UAV\|^2_2 = \|(UAV)^HUAV\|_2 = \|V^HA^HAV\|_2 =  \|A^HAVV^H\|_2 = \|A^HA\|_2 = \|A\|^2_2$ where the first and last equality follow from parti (iii) and the equalities in the middle follow from the properties of norm. 
 \end{itemize}
 \end{problem}
@@ -231,7 +231,7 @@ Let $A,B$ be positive semi-definite, then the diagonal has all non-negative elem
 From problem 31 part (i), $\|A\|_2 = \sigma_1$ where $\sigma_1$ is the largest singular value of $A$. Then 
 $$\sup_{\|x\| = 1, \|y\| = 1} |y^HAx| \leq \sup_{\|x\| = 1, \|y\| = 1} \|y\|_2 \| \Sigma x\||_2  = \sup_{\|x\| = 1}\| \Sigma x\||_2 \leq \sigma_1$$
 where the last inequality follows from problem 31 part (i). 
-However, if we define $x$ and $y$ as in problem 31 part (i), then $\sup_{\|x\| = 1, \|y\| = 1} |y^HAx| \geq |y^HAx| = \sigma_1$. Therefore  $\sup_{\|x\| = 1, \|y\| = 1} |y^HAx| = \sigma_1 = \|A\|_2$. 
+However, if we define $x$ and $y$ as the standard eigenvector $e_1$, then $\sup_{\|x\| = 1, \|y\| = 1} |y^HAx| \geq |y^HAx| = \sigma_1$. Therefore  $\sup_{\|x\| = 1, \|y\| = 1} |y^HAx| = \sigma_1 = \|A\|_2$. 
 \end{problem}
 
 \begin{problem}{36.} 
