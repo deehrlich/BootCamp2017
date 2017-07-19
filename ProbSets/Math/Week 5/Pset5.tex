@@ -1,0 +1,95 @@
+ \documentclass[12pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{fancyhdr}
+\usepackage{setspace}
+\pagestyle{fancy}
+\usepackage{amsmath, amsthm, amssymb, amsfonts, mathtools, xfrac,mathrsfs}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{graphicx,dsfont}
+\usepackage{braket, bm}
+
+\everymath{\displaystyle}
+\headheight=20pt
+
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\E}{\mathrm{E}}
+\newcommand{\Var} {\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\F}{\mathbb{F}}
+
+\DeclareMathOperator{\Tr}{Tr}
+
+\def\mean#1{\left< #1 \right>}
+ 
+\newcommand*\rfrac[2]{{}^{#1}\!/_{#2}}
+ 
+\newenvironment{theorem}[2][Theorem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2}]}{\end{trivlist}}
+
+\newenvironment{problem}[2][Problem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2}]}{\end{trivlist}}
+
+\title{Homework}
+\lhead{Math OSM Lab}
+\chead{Homework 4 - 7/14/17}
+\rhead{Dan Ehrlich}
+ 
+\begin{document}
+
+\begin{problem}{1.}
+Let $S$ be a nonempty subset of $V$. Consider $conv(S)$ which is the set of all elements such that $\lambda_1x_1 + \cdots + \lambda_kx_k \in conv(S)$ where $x_i \in S, k \in \N$ and $\lambda_i \geq 0$ and $\lambda_1 + \cdots + \lambda_k = 1$. Consider then the case where $k=2$. We then have that $\lambda_1x + \lambda_2 y \in conv(S)$. Then by our assumptions, $\lambda_1 + \lambda_2 = 1$ so $\lambda \equiv \lambda_1 = 1- \lambda_2$. Then for any $x,y \in S$ we have $\lambda x + (1-\lambda)y \in conv(S)$ so $conv(S)$ is convex. 
+\end{problem}
+
+\begin{problem}{2.}\hfill
+\begin{itemize}
+\item[(i)] Let $P = \{x \in V | \langle a, x \rangle = b\} \in V$ be a hyperplane where $a \in V, a \neq 0, b\in \R$. Let $x, y \in P$ and consider the point $\lambda x + (1-\lambda)y$. Then $\langle a, \lambda x + (1-\lambda)y \rangle = \lambda \langle a, x \rangle + (1-\lambda)\langle a, y \rangle = \lambda b + (1-\lambda)b = b$ so $\lambda x + (1-\lambda)y \in P$ and $P$ is convex. 
+\item[(ii)]Let $H = \{x \in V | \langle a, x \rangle \leq b\} \in V$ be a half-space where $a \in V, a \neq 0, b\in \R$. Let $x, y \in H$ and consider the point $\lambda x + (1-\lambda)y$. Then  $\langle a, \lambda x + (1-\lambda)y \rangle = \lambda \langle a, x \rangle + (1-\lambda)\langle a, y \rangle \leq \lambda b + (1-\lambda)b = b$ so $\lambda x + (1-\lambda)y \in H$ and $H$ is convex. 
+\end{itemize}
+\end{problem}
+
+
+\begin{problem}{4.} \hfill
+\begin{itemize}
+\item[(i)]$\| x - y\|^2 = \langle x - y, x - y \rangle = \langle (x - p ) + (p- y) , (x - p ) + (p- y)\rangle = \| x - p\|^2 + \| p - y\|^2 + 2 \langle x - p, p - y \rangle$
+\item[(ii)] Let $\langle x - p, p- y \rangle \geq 0$. Then if $y \neq p$ we have by part 1 that $\| x - y\|^2 = \| x - p\|^2 + \| p - y\|^2 + 2 \langle x - p, p - y \rangle$ where both the second and third terms on the right hand side are greater than $0$ so the left hand side is greater than the right hand side and $\| x - y\|^2 > \| x - p\|^2$. 
+\item[(iii)] Let $z = \lambda y + (1-\lambda)p$ where $0 \geq \lambda \leq 1$.  Then $\| x - z\|^2 = \| x -  \lambda y -(1-\lambda)p\|^2 =  \langle x -  \lambda y - (1-\lambda)p, x -  \lambda y  - (1-\lambda)p \rangle = \langle (x - p) - \lambda (y - p) , (x - p) - \lambda (y - p)  \rangle=  \| x - p\|^2 +2 \lambda \langle x - p, y - p \rangle + \lambda^2 \| y - p\|^2$
+\item[(iv)] Let $p$ be the projection of point $x$ onto $C$. Then by definition of the projection $\|x - p\|^2 \leq \|x - y\|^2,  \hspace{0.2cm} \forall y \in C$. We have from part (iii) that  $\| x - z\|^2  -  \| x - p\|^2 =  2 \lambda \langle x - p, y - p \rangle + \lambda^2 \| y - p\|^2$. Then by the definition of the projection $\| x - z\|^2  -  \| x - p\|^2 \geq 0$ so $0 \leq 2 \langle x - p, y - p \rangle + \lambda \| y - p\|^2$. 
+\end{itemize}
+\end{problem}
+
+\begin{problem}{6.} 
+Let $f: \R^n \to \R$ be a convex function and consider the set $C = \{ x \in \R^n | f(x) \leq c\} \subset \R^n$. Then for $x,y \in C$ and $0 \leq \lambda \leq 1$, since $f$ is convex, we have that $f(\lambda x + (1-\lambda)y) \leq \lambda f(x) + (1-\lambda)f(y) \leq \lambda c + (1-\lambda)c = c$. Therefore, $\lambda x + (1-\lambda)y \in C$ so $C$ is convex. 
+\end{problem}
+
+\begin{problem}{7.} 
+Let $C$ be a convex set and let $f_1, \cdots, f_k$ be convex functions where $f_i:C \to \R$ and $\lambda_1, \cdots, \lambda_k \in \R^+$. Then define the function $f$ as $f(x) = \sum_{i=1}^{k} \lambda_if_i(x)$. Consider the points $x, y \in C$ and $0 \leq \lambda \leq 1$ so $\lambda x + (1-\lambda)y \in C$ since $C$ is convex . Then
+\begin{align*}
+ f(\lambda x + (1-\lambda)y) &= \sum_{i=1}^{k} \lambda_if_i(\lambda x + (1-\lambda)y) \\
+ & \leq \sum_{i=1}^{k} \lambda_i (\lambda f_i(x) + (1-\lambda)f_i(y))   \\
+  & =\sum_{i=1}^{k} \lambda_i \lambda f_i(x) + \sum_{i=1}^{k}  \lambda_i(1-\lambda)f_i(y) \\
+  & =\lambda  \sum_{i=1}^{k} \lambda_i f_i(x) + (1-\lambda) \sum_{i=1}^{k}  \lambda_if_i(y) \\
+  & = \lambda f(x) + (1- \lambda) f(y)
+ \end{align*}
+\end{problem}
+
+\begin{problem}{13.} 
+Let $f: \R^n \to \R$ be a convex function and bounded above. 
+\end{problem}
+
+\begin{problem}{20.} 
+\end{problem}
+
+\begin{problem}{21.} 
+\end{problem}
+
+\end{document}
+
+
+
+
