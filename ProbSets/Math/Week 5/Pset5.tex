@@ -79,13 +79,25 @@ Let $C$ be a convex set and let $f_1, \cdots, f_k$ be convex functions where $f_
 \end{problem}
 
 \begin{problem}{13.} 
-Let $f: \R^n \to \R$ be a convex function and bounded above. 
+Let $f: \R^n \to \R$ be a convex function and bounded above. Assume by contradiction that $f$ is not constant. Then WLOG $\exists \hspace{0.1cm} x,y, z, \in \R^n$ such that $x <y $ and $f(x) < f(y)$. Additionally, let  $z \in (x,y)$. We have by convexity that $f(\lambda x + (1-\lambda) y) \geq \lambda f(x) + (1 - \lambda) f(y)$. If we let $\lambda  = \frac{z-y}{y-x}$ then $\lambda x + (1-\lambda) y = z$. Rewriting the above expression we have that $f(z) \geq \lambda f(x) + (1 - \lambda) f(y)$. If we let $y \to \infty$ then $f$ violates the condition of being bounded above, and must therefore be a constant function. 
 \end{problem}
 
 \begin{problem}{20.} 
+Let $f: \R^n \to R$ be convex and let $-f$ also be convex. We have then that 
+$$f(\lambda x + (1-\lambda) y) \geq \lambda f(x) + (1 - \lambda) f(y)$$
+$$- f(\lambda x + (1-\lambda) y) \geq - (\lambda f(x) + (1 - \lambda) f(y))$$
+These two conditions together imply that 
+$$f(\lambda x + (1-\lambda) y) = \lambda f(x) + (1 - \lambda) f(y)$$
+so f is linear and therefore affine. 
 \end{problem}
 
 \begin{problem}{21.} 
+Let $x^*$ be the local minimizer for the problem
+\begin{align*}
+\min \hspace{1cm} & \phi \circ f(x) &\\
+ \text{ s.t } \hspace{1cm}  & G(x) \leq 0& \\
+&H(x) = 0&
+\end{align*}
 \end{problem}
 
 \end{document}
