@@ -1,0 +1,55 @@
+ \documentclass[12pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{fancyhdr}
+\usepackage{setspace}
+\pagestyle{fancy}
+\usepackage{amsmath, amsthm, amssymb, amsfonts, mathtools, xfrac,mathrsfs}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{graphicx,dsfont}
+\usepackage{braket, bm}
+
+\everymath{\displaystyle}
+\headheight=20pt
+
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\E}{\mathrm{E}}
+\newcommand{\Var} {\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\F}{\mathbb{F}}
+
+\DeclareMathOperator{\Tr}{Tr}
+
+\def\mean#1{\left< #1 \right>}
+ 
+\newcommand*\rfrac[2]{{}^{#1}\!/_{#2}}
+ 
+\newenvironment{theorem}[2][Theorem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2}]}{\end{trivlist}}
+
+\newenvironment{problem}[2][Problem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2}]}{\end{trivlist}}
+
+\title{Homework}
+\lhead{Econ OSM Lab}
+\chead{Perturbation}
+\rhead{Dan Ehrlich}
+ 
+\begin{document}
+
+\begin{problem}{1.} 
+We differentiate equation (5) in the perturbation notes with respect to $u$ and suppress the function arguments for the sake of clarity. This gives us: 
+$$F_{xx}x_u^3 + 3 F_{xx}x_ux_{uu} + F_{xxu}(x_u^2 + x_u) + F_xx_{uuu} + 2F_{xu}x_{uu} + 2 F_{uuu} + 3 F_{uux}x_u = 0$$
+\end{problem}
+
+\begin{problem}{2-5.} 
+Refer to the appropriate python notebook.
+\end{problem}
+
+\end{document}
+
